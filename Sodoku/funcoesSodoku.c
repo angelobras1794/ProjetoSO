@@ -199,7 +199,6 @@ int main(){
         perror("Error allocating memory");
         return 1;
     }
-    // jogo(jogos);
     criarJogo(ficheiro, jogos);
     return 0;
 }

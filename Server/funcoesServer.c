@@ -8,8 +8,25 @@
 #include <sys/socket.h>
 
 #include <netinet/in.h>
-#include <funcoesServer.h>
+#include "funcoesServer.h"
 #define TAM 6
+
+
+void remove_newline(char *str) {
+    size_t len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+    }
+}
+int is_empty_or_whitespace(const char *str) {
+    while (*str) {
+        if (!isspace((unsigned char)*str)) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
 
 
 
