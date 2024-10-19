@@ -35,34 +35,35 @@ void insere_id(int arr_clientes[],int client_id){
 
 void handle_client(int server_socket,int client_socket,int arr_clientes[]){
     
-    while(true){
-         
     verifica_ID(server_socket,client_socket,arr_clientes);
+
+    
+    FILE * ficheiro;
+    struct jogoSoduku *jogos = malloc(sizeof(struct jogoSoduku));
+    criarJogo(ficheiro,jogos,client_socket);
     
     // codigo do jogo fica aqu
-    break;
-    }
+    
+    
 
 }
 
 
 void verifica_ID(int server_socket,int client_socket,int arr_clientes[]){
     int id_cliente = 0;
- while(true){
-     recv(client_socket,&id_cliente,sizeof(id_cliente),0);         // Now 'id' holds the correct integer in host byte order
-     printf("O cliente com id %d quer se conectar\n",id_cliente);
-     if(percorrer_arr(arr_clientes,id_cliente)){
-        send(client_socket,"false",sizeof("false"),0);
-     }else{
-      send(client_socket,"true",sizeof("true"),0);
-      insere_id(arr_clientes,id_cliente);  
-      printf("O cliente com id %d foi inserido",id_cliente);
-      break;
-     }  
-     
-
-
- }    
+    while(true){
+        recv(client_socket,&id_cliente,sizeof(id_cliente),0);         // Now 'id' holds the correct integer in host byte order
+        printf("O cliente com id %d quer se conectar\n",id_cliente);
+        if(percorrer_arr(arr_clientes,id_cliente)){
+            send(client_socket,"false",sizeof("false"),0);
+        }
+        else{
+            send(client_socket,"true",sizeof("true"),0);
+            insere_id(arr_clientes,id_cliente);  
+            printf("O cliente com id %d foi inserido",id_cliente);
+            break;
+        }  
+    }    
 
 }
 
@@ -72,6 +73,7 @@ void verifica_ID(int server_socket,int client_socket,int arr_clientes[]){
 
 
 int main(){
+    srand(time(NULL));
     int arr_clientes[N_CLIENTES] = {0};
      
     char server_message[256] = "Conseguiste alcancar o servidor";
@@ -96,6 +98,8 @@ int main(){
     int client_socket;
     while(true){
     client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size);
+
+
     handle_client(server_socket,client_socket,arr_clientes);    
      break;
     }

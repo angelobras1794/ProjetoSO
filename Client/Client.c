@@ -27,6 +27,65 @@ void geraId(int Cliente_id,int client_socket){
 
 }
 
+void jogaJogo(int client_socket){
+ int linha, coluna,valor;
+ int jogadas = 0;
+ char mensagem[100];
+ int *tabuleiro[9][9];
+ recv(client_socket,&mensagem,sizeof(mensagem),0);
+ printf("%s",mensagem);
+ while(jogadas < 4){
+ recv(client_socket,&tabuleiro,sizeof(tabuleiro),0);
+ mostra_grid(tabuleiro);
+ recv(client_socket,&mensagem,sizeof(mensagem),0);
+ printf("%s",mensagem);
+ scanf("%d",&linha);
+ send(client_socket,&linha,sizeof(linha),0);     //envia a linha
+ recv(client_socket,&mensagem,sizeof(mensagem),0);
+ printf("%s",mensagem);
+ scanf("%d",&coluna);
+ send(client_socket,&coluna,sizeof(coluna),0);   //envia a coluna
+ recv(client_socket,&mensagem,sizeof(mensagem),0);
+  if(strcmp(mensagem,"true")==0){
+     recv(client_socket,&mensagem,sizeof(mensagem),0);
+     printf("%s",mensagem);
+     scanf("%d",&valor);
+     send(client_socket,&valor,sizeof(valor),0);
+     recv(client_socket,&mensagem,sizeof(mensagem),0);
+     if(strcmp(mensagem,"true")==0){
+      jogadas++;
+      recv(client_socket,&mensagem,sizeof(mensagem),0);
+      printf("%s",mensagem);
+     }else{
+        recv(client_socket,&mensagem,sizeof(mensagem),0);
+        printf("%s",mensagem);
+     }
+  }else{
+      recv(client_socket,&mensagem,sizeof(mensagem),0);
+      printf("%s",mensagem);
+  }
+
+ }
+ 
+
+}
+
+
+void mostra_grid(int *tabuleiro[9][9]) {
+    for (int i = 0; i < 9; i++) { // linhas
+    if (i == 3 || i == 6) {
+            printf("-----------\n");
+        }
+        for (int j = 0; j < 9; j++) { // colunas
+            if (j == 3 || j == 6) {
+                printf("|");
+            }
+            printf("%d",tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 int main(){
     
     int Cliente_id = 1;
@@ -49,6 +108,7 @@ int main(){
     
     //receber resposta do server
     geraId(Cliente_id,network_socket);
+    jogaJogo(network_socket);
 
 
     close(network_socket);
