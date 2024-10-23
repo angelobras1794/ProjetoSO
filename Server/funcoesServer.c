@@ -118,6 +118,7 @@ void jogo(struct jogoSoduku * Jogo,int client_socket){
     recv(client_socket,&linha,sizeof(linha),0);
    
     linha--;  
+    printf("\n%d\n",linha);
    
     strcpy(mensagem, "\nPorfavor insira a coluna\n");
     send(client_socket,&mensagem,sizeof(mensagem),0); 
@@ -125,31 +126,42 @@ void jogo(struct jogoSoduku * Jogo,int client_socket){
     //  //recebe a coluna escolhida pelo cliente
     recv(client_socket,&coluna,sizeof(coluna),0);
     coluna--;
+    printf("%d\n",coluna);
     if(Jogo->tabuleiro[linha][coluna] == 0){
-        send(client_socket,"true",sizeof("true"),0);
+        strcpy(mensagem,"true");
+        send(client_socket,&mensagem,sizeof(mensagem),0);
         strcpy(mensagem, "\nPorfavor insira o valor\n");
-        send(client_socket,&mensagem,sizeof(mensagem),0); 
+        send(client_socket,&mensagem,sizeof(mensagem),0); //Acontece ate aqui
         recv(client_socket,&valor,sizeof(valor),0);
+        printf("%d\n",valor);
         if(verifica_jogada(Jogo,linha,coluna,valor)){
-            send(client_socket,"true",sizeof("true"),0);
+            strcpy(mensagem, "true");
+            send(client_socket,mensagem,sizeof(mensagem),0);
             Jogo->tabuleiro[linha][coluna] = valor;
             jogadas++;
             strcpy(mensagem, "\nJogada efetuada com sucesso\n Faca A sua proxima jogada\n");
-            send(client_socket,&mensagem,sizeof(mensagem),0);  
+            send(client_socket,&mensagem,sizeof(mensagem),0); 
+            send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0); 
         }else{
-           send(client_socket,"true",sizeof("true"),0);
+           strcpy(mensagem,"false");
+           send(client_socket,mensagem,sizeof(mensagem),0);
            strcpy(mensagem, "O valor ja existe na linha ou coluna ou quadrado\n");
            send(client_socket,&mensagem,sizeof(mensagem),0); 
+           send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
         }
     }else{
-        send(client_socket,"false",sizeof("false"),0);
-        strcpy(mensagem, "\nA posicao ja esta preenchida , Tenta outra posicao\n");
+        strcpy(mensagem,"false");
+        send(client_socket,mensagem,sizeof(mensagem),0);
+        strcpy(mensagem,"\nA posicao ja esta preenchida , Tenta outra posicao\n");
         send(client_socket,&mensagem,sizeof(mensagem),0);
+        send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
+        mostra_grid(Jogo->tabuleiro);
+        
      }
    }
-    // mensagem = "\nParabens, Jogo concluido\n";
-    // send(client_socket,&mensagem,sizeof(mensagem),0);
-    // send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
+    strcpy(mensagem, "\nParabens, Jogo concluido\n");
+    send(client_socket,&mensagem,sizeof(mensagem),0);
+    send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
     
 
 }

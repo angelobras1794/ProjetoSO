@@ -31,12 +31,12 @@ void jogaJogo(int client_socket){
  int linha, coluna,valor;
  int jogadas = 0;
  char mensagem[100];
- int *tabuleiro[9][9];
+ int * tabuleiro[9][9];
  recv(client_socket,&mensagem,sizeof(mensagem),0);
  printf("%s",mensagem);
  while(jogadas < 4){
- recv(client_socket,&tabuleiro,sizeof(tabuleiro),0);
- mostra_grid(tabuleiro);
+  recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
+  mostra_grid(tabuleiro);
  recv(client_socket,&mensagem,sizeof(mensagem),0);
  printf("%s",mensagem);
  scanf("%d",&linha);
@@ -49,21 +49,35 @@ void jogaJogo(int client_socket){
   if(strcmp(mensagem,"true")==0){
      recv(client_socket,&mensagem,sizeof(mensagem),0);
      printf("%s",mensagem);
-     scanf("%d",&valor);
+     printf("%s","Please enter a value for 'valor':\n");
+     scanf("%d", &valor);
+     printf("Valor to send: %d\n", valor);
      send(client_socket,&valor,sizeof(valor),0);
      recv(client_socket,&mensagem,sizeof(mensagem),0);
      if(strcmp(mensagem,"true")==0){
       jogadas++;
       recv(client_socket,&mensagem,sizeof(mensagem),0);
       printf("%s",mensagem);
+      recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
      }else{
         recv(client_socket,&mensagem,sizeof(mensagem),0);
         printf("%s",mensagem);
+        recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
      }
   }else{
       recv(client_socket,&mensagem,sizeof(mensagem),0);
-      printf("%s",mensagem);
+      printf("\n%s",mensagem);
+      recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
+      
+      
   }
+
+ }
+ if(jogadas == 4){
+   recv(client_socket,&mensagem,sizeof(mensagem),0);
+   printf("%s",mensagem);
+   recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
+   mostra_grid(tabuleiro);
 
  }
  
