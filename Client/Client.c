@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
  
 //sockets
 #include <sys/types.h>
 #include <sys/socket.h>
 
 #include <netinet/in.h>
-#include <arpa/inet.h>
+
 
 void geraId(int Cliente_id,int client_socket){
     char resposta_servidor[5];
@@ -27,13 +29,17 @@ void geraId(int Cliente_id,int client_socket){
 
 }
 
-void jogaJogo(int client_socket){
+
+
+void jogaJogo(int client_socket,int id_cliente){
  int linha, coluna,valor;
  int jogadas = 0;
  char mensagem[100];
  int * tabuleiro[9][9];
+ send(client_socket,&id_cliente,sizeof(id_cliente),0);
  recv(client_socket,&mensagem,sizeof(mensagem),0);
  printf("%s",mensagem);
+ escrever_logs(id_cliente,"1 - O cliente recebeu o Jogo");
  while(jogadas < 4){
   recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
   mostra_grid(tabuleiro);
@@ -45,15 +51,17 @@ void jogaJogo(int client_socket){
  printf("%s",mensagem);
  scanf("%d",&coluna);
  send(client_socket,&coluna,sizeof(coluna),0);   //envia a coluna
+ escrever_logs(id_cliente,"2 - O cliente enviou a resposta (linha,coluna)");
  recv(client_socket,&mensagem,sizeof(mensagem),0);
+ escrever_logs(id_cliente,"3 - O cliente recebe a resposta (linha,coluna)");
   if(strcmp(mensagem,"true")==0){
      recv(client_socket,&mensagem,sizeof(mensagem),0);
      printf("%s",mensagem);
-     printf("%s","Please enter a value for 'valor':\n");
      scanf("%d", &valor);
-     printf("Valor to send: %d\n", valor);
      send(client_socket,&valor,sizeof(valor),0);
+     escrever_logs(id_cliente,"2 - O cliente enviou a resposta (valor)");
      recv(client_socket,&mensagem,sizeof(mensagem),0);
+     escrever_logs(id_cliente,"3 - O cliente recebe a resposta (valor)");
      if(strcmp(mensagem,"true")==0){
       jogadas++;
       recv(client_socket,&mensagem,sizeof(mensagem),0);
@@ -78,9 +86,26 @@ void jogaJogo(int client_socket){
    printf("%s",mensagem);
    recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
    mostra_grid(tabuleiro);
+   escrever_logs(id_cliente,"4 - O cliente termina o jogo");
 
  }
  
+
+}
+void escrever_logs(int id_user,char *mensagem){
+    FILE *ficheiro = fopen("logs.txt", "a");
+    if (ficheiro == NULL) {
+        perror("Error opening file");
+        return;
+    }
+
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+    char time_str[100];
+    strftime(time_str, sizeof(time_str) - 1, "%H:%M:%S", t);
+    fprintf(ficheiro, "%d [%s] '%s'\n",id_user,time_str, mensagem);
+    fclose(ficheiro);
+     
 
 }
 
@@ -122,10 +147,10 @@ int main(){
     
     //receber resposta do server
     geraId(Cliente_id,network_socket);
-    jogaJogo(network_socket);
+    jogaJogo(network_socket,Cliente_id);
 
 
-    close(network_socket);
+    
     
     //printf("O servidor respondeu com %s ",server_response); //resposta do server
    

@@ -42,7 +42,7 @@ void handle_client(int server_socket,int client_socket,int arr_clientes[]){
     struct jogoSoduku *jogos = malloc(sizeof(struct jogoSoduku));
     criarJogo(ficheiro,jogos,client_socket);
     
-    // codigo do jogo fica aqu
+    close(client_socket);
     
     
 
@@ -101,7 +101,7 @@ int main(){
 
 
     handle_client(server_socket,client_socket,arr_clientes);    
-     break;
+     
     }
                                                                            
     return 0;
