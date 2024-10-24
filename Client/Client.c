@@ -137,7 +137,8 @@ int main(){
     struct sockaddr_in server_address;
     server_address.sin_family=AF_INET; //especeficacao do endereco de familia 
     server_address.sin_port = htons(10000); 
-    server_address.sin_addr.s_addr = INADDR_ANY;      
+    inet_pton(AF_INET,"10.2.15.230", &server_address.sin_addr);
+    
     
    int connection_status = connect(network_socket,(struct sockaddr*)&server_address,sizeof(server_address));
    

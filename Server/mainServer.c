@@ -72,7 +72,18 @@ void verifica_ID(int server_socket,int client_socket,int arr_clientes[]){
 
 
 
-int main(){
+int main(int argc,int *argv[]){
+     printf("%s",argv[1]);
+     struct confServer *configuracao = malloc(sizeof(struct confServer));
+     ler_ficheiroConf(configuracao,argv[1]);
+
+
+
+
+
+
+
+
     srand(time(NULL));
     int arr_clientes[N_CLIENTES] = {0};
      
@@ -86,8 +97,9 @@ int main(){
     struct sockaddr_in server_address, client_address;
     socklen_t client_address_size = sizeof(client_address);
     server_address.sin_family=AF_INET; //especeficacao do endereco de familia 
-    server_address.sin_port = htons(10000); 
-    server_address.sin_addr.s_addr = INADDR_ANY;   
+    server_address.sin_port = htons(configuracao->porta);       //carregamento de parametros
+    inet_pton(AF_INET, configuracao->ip_server, &server_address.sin_addr);
+       //carregamento de parametros
 
    // ligar o socket para o ip especificado e porta
    bind(server_socket,(struct sockaddr*) &server_address,sizeof(server_address));

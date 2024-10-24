@@ -234,3 +234,42 @@ void criarJogo(FILE *ficheiro, struct jogoSoduku *jogos,int client_socket) {
    jogo(jogos,client_socket);
    fclose(ficheiro);
 }
+
+
+void ler_ficheiroConf(struct confServer * server,char * nomeFicheiro){
+    char linha[256];
+    //  int porta;
+    // char server_ip[INET_ADDRSTRLEN];
+    FILE *ficheiro = fopen(nomeFicheiro, "r");
+    if (ficheiro == NULL) {
+        perror("Error opening file");
+        return;
+    }
+       while (fgets(linha, sizeof(linha), ficheiro) != NULL) {
+        // Remover nova linha, se existir
+        size_t len = strlen(linha);
+        if (len > 0 && linha[len - 1] == '\n') {
+            linha[len - 1] = '\0';
+        }
+
+        // Verificar se a linha contém "SERVER_IP"
+        if (strncmp(linha, "SERVER_IP:", 10) == 0) {
+            // Copiar o IP após "SERVER_IP:"
+            
+            strcpy(server->ip_server, linha + 10);
+            printf("%s\n",server->ip_server);
+            
+        }
+        // Verificar se a linha contém "PORTA"
+        else if (strncmp(linha, "PORTA:", 6) == 0) {
+            // Converter a porta de string para inteiro
+            server->porta = atoi(linha + 6);
+            printf("%d\n",server->porta);
+        }
+    }
+
+
+
+    fclose(ficheiro);
+    
+}
