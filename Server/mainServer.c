@@ -8,13 +8,16 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include "funcoesServer.h"
+#include "cJSON.h"
 
 #define N_CLIENTES 100
+#define MAX_SALAS  3
+#define MAX_JOGADORES 1
 
 
-bool percorrer_arr(int arr_clientes[],int cliente_id){
-    for(int i=0;i<sizeof(arr_clientes);i++){
-        if(arr_clientes[i] == cliente_id){
+bool percorrer_arr(struct jogoSoduku *salas,int sala_id){
+    for(int i=0;i<sizeof(salas);i++){
+        if(salas[i].idSala == sala_id){
             return true;
         }
     }
@@ -23,98 +26,113 @@ bool percorrer_arr(int arr_clientes[],int cliente_id){
 
 }
 
-void insere_id(int arr_clientes[],int client_id){
-    for(int i = 0; i<sizeof(arr_clientes);i++){
-        if(arr_clientes[i]==0){
-            arr_clientes[i] = client_id;
+void insere_id(struct jogoSoduku *salas,int sala_id){
+    for(int i = 0; i<sizeof(salas);i++){
+        if(salas[i].idSala==0){
+            salas[i].idSala = sala_id;
             break;
         }
 
     }  
 }
 
-void handle_client(int server_socket,int client_socket,int arr_clientes[]){
-    
-    verifica_ID(server_socket,client_socket,arr_clientes);
-
-    
-    FILE * ficheiro;
-    struct jogoSoduku *jogos = malloc(sizeof(struct jogoSoduku));
-    criarJogo(ficheiro,jogos,client_socket);
-    
-    close(client_socket);
-    
-    
-
-}
-
-
-void verifica_ID(int server_socket,int client_socket,int arr_clientes[]){
-    int id_cliente = 0;
+void verifica_ID(int client_socket,struct jogoSoduku *salas){
+    int id_sala = 1;
+    char mensagem[100];
     while(true){
-        recv(client_socket,&id_cliente,sizeof(id_cliente),0);         // Now 'id' holds the correct integer in host byte order
-        printf("O cliente com id %d quer se conectar\n",id_cliente);
-        if(percorrer_arr(arr_clientes,id_cliente)){
-            send(client_socket,"false",sizeof("false"),0);
+        if(percorrer_arr(salas,id_sala)){
+            id_sala++;
         }
         else{
-            send(client_socket,"true",sizeof("true"),0);
-            insere_id(arr_clientes,id_cliente);  
-            printf("O cliente com id %d foi inserido",id_cliente);
+            insere_id(salas,id_sala);      // o cliente 'e inserido no array
+            printf("A SALA foi criada com id %d ",id_sala);
             break;
         }  
     }    
 
 }
 
+void handle_client(int server_socket,int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas){
+    char mensagem[100];
+    // verifica_ID(server_socket,client_socket,arr_clientes);
+    printf("%dnknkn :: \n",*totalSalas);
+    
+    // FILE * ficheiro;
+    // struct jogoSoduku *jogos = malloc(sizeof(struct jogoSoduku));
+    // criarJogo(ficheiro,jogos,client_socket);
+    
+    while(true){
+      recv(client_socket,mensagem,sizeof(mensagem),0);
+      processarMensagem(mensagem,client_socket,salas,salasDisponiveis,totalSalas);
+      
 
 
+    }
+    
+    
 
-
+}
 
 int main(int argc,int *argv[]){
-     printf("%s",argv[1]);
-     struct confServer *configuracao = malloc(sizeof(struct confServer));
+     struct confServer *configuracao = malloc(sizeof(struct confServer)); //alocar espaco para a struct
      ler_ficheiroConf(configuracao,argv[1]);
 
+    srand(time(NULL)); //usado para a geracao de numeros aleatorios
+    struct jogoSoduku salas[MAX_SALAS];
+    for(int i=0;i<MAX_SALAS;i++){
+         salas[i].idSala=0;
+         salas[i].nJogadores=0;
+         salas[i].idTabuleiro=0;
 
-
-
-
-
-
-
-    srand(time(NULL));
-    int arr_clientes[N_CLIENTES] = {0};
+    }
+    int totalSalas = 0;
+    char salasDisponiveis[MAX_SALAS][100];
+    printf("%d\n",totalSalas);
+    
      
-    char server_message[256] = "Conseguiste alcancar o servidor";
-    //create the server socket
+    
+    //criar o server socket
     int server_socket;
-    server_socket = socket(AF_INET,SOCK_STREAM,0);
+    server_socket = socket(AF_INET,SOCK_STREAM,0); //socket(dominio,tipo,protocolo) , AF_INET -> IPV4 , sock_stream -> TCP
 
     // defenir o endereco do servidor 
     
     struct sockaddr_in server_address, client_address;
     socklen_t client_address_size = sizeof(client_address);
     server_address.sin_family=AF_INET; //especeficacao do endereco de familia 
-    server_address.sin_port = htons(configuracao->porta);       //carregamento de parametros
-    inet_pton(AF_INET, configuracao->ip_server, &server_address.sin_addr);
-       //carregamento de parametros
+    server_address.sin_port = htons(configuracao->porta);   //converter de inteiro para ordem de bytes de rede   
+    inet_pton(AF_INET, configuracao->ip_server, &server_address.sin_addr); //passar de char para formato ip
+       
 
    // ligar o socket para o ip especificado e porta
    bind(server_socket,(struct sockaddr*) &server_address,sizeof(server_address));
 
-   listen(server_socket,10);
+   listen(server_socket,10); //consegue ter pelo menos 10 clientes
 
    //while(1){} loop principal , para o servidor estar sempre a receber pedidos
     int client_socket;
     while(true){
-    client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size);
+        
+    client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size); //servidor aceita clientes
 
 
-    handle_client(server_socket,client_socket,arr_clientes);    
+    handle_client(server_socket,client_socket,salas,salasDisponiveis,&totalSalas);   //funcao para tratar do cliente 
      
     }
                                                                            
     return 0;
 }
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+

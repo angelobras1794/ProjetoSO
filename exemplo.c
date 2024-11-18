@@ -1,68 +1,152 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
-//sockets
-#include <sys/types.h>
-#include <sys/socket.h>
-
-#include <netinet/in.h>
 #include <string.h>
+#include "cJSON.h"
 
-void escreveLogServer(char *log)
-{
-    FILE * ficheiro;
-    ficheiro=fopen("logs.txt","ab");
+#define N 9  // Size of the grid (9x9)
 
-    fprintf(ficheiro, "%s\n", log);
-    fclose(ficheiro);
-}
+// Structure to hold the Sudoku game data
+typedef struct {
+    int sudoku[N][N];
+    int solution[N][N];
+    char time_record[20];
+    int point_record;
+} SudokuGame;
 
-void ler_ficheiroConf(){
-    char linha[256];
-     int porta;
-    char server_ip[INET_ADDRSTRLEN];
-    FILE *ficheiro = fopen("server.conf", "r");
-    if (ficheiro == NULL) {
-        perror("Error opening file");
-        return;
-    }
-       while (fgets(linha, sizeof(linha), ficheiro) != NULL) {
-        // Remover nova linha, se existir
-        size_t len = strlen(linha);
-        if (len > 0 && linha[len - 1] == '\n') {
-            linha[len - 1] = '\0';
-        }
-
-        // Verificar se a linha contém "SERVER_IP"
-        if (strncmp(linha, "SERVER_IP:", 10) == 0) {
-            // Copiar o IP após "SERVER_IP:"
-            
-            strcpy(server_ip, linha + 10);
-            printf("%s\n",server_ip);
-            
-        }
-        // Verificar se a linha contém "PORTA"
-        else if (strncmp(linha, "PORTA:", 6) == 0) {
-            // Converter a porta de string para inteiro
-            porta = atoi(linha + 6);
-            printf("%d\n",porta);
-        }
+// Function to load the Sudoku game from a JSON file
+int load_sudoku_game(const char *filename, SudokuGame *game) {
+    FILE *file = fopen(filename, "r");
+    if (!file) {
+        printf("Error opening file %s\n", filename);
+        return 0;
     }
 
+    // Read the entire file content into a string
+    fseek(file, 0, SEEK_END);
+    long file_size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    char *file_content = (char *)malloc(file_size + 1);
+    if (file_content == NULL) {
+        printf("Memory allocation error\n");
+        fclose(file);
+        return 0;
+    }
+    fread(file_content, 1, file_size, file);
+    fclose(file);
+    file_content[file_size] = '\0';
 
+    // Parse JSON
+    cJSON *root = cJSON_Parse(file_content);
+    free(file_content);
+    if (!root) {
+        printf("Error parsing JSON\n");
+        return 0;
+    }
 
-    fclose(ficheiro);
-    
+    // Get the "games" array from the JSON
+    cJSON *games = cJSON_GetObjectItem(root, "games");
+    if (!cJSON_IsArray(games)) {
+        printf("Error: 'games' is not an array\n");
+        cJSON_Delete(root);
+        return 0;
+    }
+
+    // Get the first game (assuming we want the first game in the array)
+
+    cJSON *game_json = cJSON_GetArrayItem(games, 0);
+    if (!game_json) {
+        printf("Error: No game data found\n");
+        cJSON_Delete(root);
+        return 0;
+    }
+
+    // Check if 'tabuleiroInic' is an array
+    cJSON *sudoku = cJSON_GetObjectItem(game_json, "tabuleiroInic");
+    if (!cJSON_IsArray(sudoku)) {
+        printf("Error: 'tabuleiroInic' is not an array\n");
+        cJSON_Delete(root);
+        return 0;
+    }
+
+    // Debug: Print the sudoku data type and structure
+    printf("'tabuleiroInic' is an array, checking rows...\n");
+
+    for (int i = 0; i < N; i++) {
+        cJSON *row = cJSON_GetArrayItem(sudoku, i);
+        if (!cJSON_IsArray(row)) {
+            printf("Error: Row %d is not an array\n", i);
+            cJSON_Delete(root);
+            return 0;
+        }
+
+        // Print the row for debugging
+        printf("Row %d: ", i);
+        for (int j = 0; j < N; j++) {
+            int value = cJSON_GetArrayItem(row, j)->valueint;
+            printf("%d ", value);
+            game->sudoku[i][j] = value;  // Store the value
+        }
+        printf("\n");
+    }
+
+    // Load the solution
+    cJSON *solution = cJSON_GetObjectItem(game_json, "solucao");
+    if (!cJSON_IsArray(solution)) {
+        printf("Error: 'solucao' is not an array\n");
+        cJSON_Delete(root);
+        return 0;
+    }
+    for (int i = 0; i < N; i++) {
+        cJSON *row = cJSON_GetArrayItem(solution, i);
+        if (!cJSON_IsArray(row)) {
+            printf("Error: Solution row %d is not an array\n", i);
+            cJSON_Delete(root);
+            return 0;
+        }
+        for (int j = 0; j < N; j++) {
+            game->solution[i][j] = cJSON_GetArrayItem(row, j)->valueint;
+        }
+    }
+
+    // Load the time record
+    // cJSON *time_record = cJSON_GetObjectItem(game_json, "tempo_recorde");
+    // if (cJSON_IsString(time_record)) {
+    //     strncpy(game->time_record, time_record->valuestring, sizeof(game->time_record) - 1);
+    //     game->time_record[sizeof(game->time_record) - 1] = '\0';
+    // }
+
+    // // Load the point record
+    // cJSON *point_record = cJSON_GetObjectItem(game_json, "pontuacao_recorde");
+    // if (cJSON_IsNumber(point_record)) {
+    //     game->point_record = point_record->valueint;
+    // }
+
+    cJSON_Delete(root);
+    return 1;  // Successfully loaded the game
 }
-    
 
+// Function to print the Sudoku board
+void print_sudoku(int board[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", board[i][j]);
+        }
+        printf("\n");
+    }
+}
 
+int main() {
+    SudokuGame game;
 
+    // Load the Sudoku game from a JSON file
+    if (load_sudoku_game("Jogos.json", &game)) {
+        printf("Sudoku Puzzle:\n");
+        print_sudoku(game.sudoku);
+        printf("\nSolution:\n");
+        print_sudoku(game.solution);
+    } else {
+        printf("Failed to load Sudoku game from JSON.\n");
+    }
 
-
-
-
-int main(){
-   ler_ficheiroConf();
-   return 0;
+    return 0;
 }

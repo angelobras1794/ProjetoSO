@@ -8,27 +8,7 @@
 #include <sys/socket.h>
 
 #include <netinet/in.h>
-
-
-void geraId(int Cliente_id,int client_socket){
-    char resposta_servidor[5];
-    int id = 1;
-    printf("%d\n",id);
-    while(1){
-       printf("O cliente com id %d quer se conectar\n",id);
-       send(client_socket,&id,sizeof(id),0);
-       recv(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);
-       printf("O servidor respondeu com %s\n",resposta_servidor);
-       if(strcmp(resposta_servidor,"true")==0){
-          Cliente_id = id;
-          printf("O id do cliente é %d\n",Cliente_id);
-          break;
-       }
-       id++;
-    }
-
-}
-
+#include <strings.h> // For bzero
 
 
 void jogaJogo(int client_socket,int id_cliente){
@@ -40,7 +20,7 @@ void jogaJogo(int client_socket,int id_cliente){
  recv(client_socket,&mensagem,sizeof(mensagem),0);
  printf("%s",mensagem);
  escrever_logs(id_cliente,"1 - O cliente recebeu o Jogo");
- while(jogadas < 4){
+ while(jogadas < 8){
   recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
   mostra_grid(tabuleiro);
  recv(client_socket,&mensagem,sizeof(mensagem),0);
@@ -81,7 +61,7 @@ void jogaJogo(int client_socket,int id_cliente){
   }
 
  }
- if(jogadas == 4){
+ if(jogadas == 8){
    recv(client_socket,&mensagem,sizeof(mensagem),0);
    printf("%s",mensagem);
    recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
@@ -125,6 +105,110 @@ void mostra_grid(int *tabuleiro[9][9]) {
     }
 }
 
+
+void mostraMenuPrincipal(int client_socket,int Cliente_id){
+    int menu_option;
+
+    printf("Bem vindo ao Servido Sodoku!!!\n");
+    printf("------------------------------------------\n\n");
+    do{
+    printf("Menu Principal\n");
+    printf("1-Jogar\n");
+    printf("2-Estatisticas\n");
+    printf("3-Sair\n");
+    printf("Porfavor selecione uma opcao: ");
+    scanf("%d",&menu_option);
+
+    switch(menu_option){
+
+    case 1:
+        printf("esta na opcao de jogar ");
+        mostraMenuJogar(client_socket,1);
+        break;
+    case 2:
+        printf("esta na opcao estatisticas");
+        break;
+    default:
+        printf("input invalido");
+        break;
+    }
+
+    }while(menu_option !=3);
+
+
+}
+
+void mostraMenuJogar(int client_socket,int Cliente_id) {
+    int menu_option;
+    char mensagem[100];
+    
+
+    do {
+        printf("Menu Jogar\n");
+        printf("1-Entrar numa sala\n");
+        printf("2-Criar sala\n");
+        printf("3-Voltar\n");
+        printf("Por favor, selecione uma opcao: \n");
+        scanf("%d", &menu_option);
+
+        switch (menu_option) {
+            case 1: { // Entrar em uma sala
+                int opcaoSala=0;
+                int totalSalas;
+                memset(mensagem, 0, sizeof(mensagem));
+                sprintf(mensagem,"salasCriadas:ola:%d",Cliente_id);
+                send(client_socket,&mensagem,strlen(mensagem), 0); //faz isto
+                memset(mensagem, 0, sizeof(mensagem));
+                int verifica = recv(client_socket,&totalSalas,sizeof(totalSalas),0);             //nao faz print 
+                if(totalSalas != 0 ){
+                    char salas[totalSalas][100]; //fazer a parte das salas para o cliente
+                    recv(client_socket,&salas,sizeof(salas),0);
+                    printf("Salas Disponiveis: \n");
+                    for(int z=0;z<totalSalas;z++){
+                        printf("%s\n",salas[z]);
+                    }
+                    printf("Escolha uma sala: \n");
+                    scanf("%d",&opcaoSala);
+                    printf("%d\n",opcaoSala);
+                    printf("Debug: opcaoSala = %d, Cliente_id = %d\n", opcaoSala,Cliente_id);
+                
+                
+                    sprintf(mensagem,"entrar_em_sala:%d:%d",opcaoSala,Cliente_id);
+                    
+                    send(client_socket,&mensagem,sizeof(mensagem),0); //+1 ?
+                    recv(client_socket,&mensagem,sizeof(mensagem),0);
+                    printf("%s\n",mensagem); //resposta do servidor (sucesso na criacao ou nao)
+                }else{
+                    printf("Nao existe nenhuma SALA \n\n\n");
+                }
+                
+                break;
+            }
+            case 2: { // Criar uma sala
+                char nomeSala[20];
+                char resposta_servidor[110];
+                printf("Esta na opcao de criar uma sala\n");
+                printf("Insira o nome da sala: \n");
+                scanf("%s", nomeSala);
+                printf(" \nnome da SALA: %s \n\n",nomeSala); //
+                // Envia ação e nome da sala ao servidor
+                memset(mensagem, 0, sizeof(mensagem));
+                sprintf(mensagem,"criar_sala:%s:%d",nomeSala,Cliente_id);
+                send(client_socket,&mensagem,strlen(mensagem), 0);
+                recv(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
+                printf("%s\n",resposta_servidor);
+                break;
+            }
+            default:
+                printf("Input invalido\n");
+                break;
+        }
+
+    } while (menu_option != 3);
+}
+
+
+
 int main(){
     
     int Cliente_id = 1;
@@ -137,19 +221,23 @@ int main(){
     struct sockaddr_in server_address;
     server_address.sin_family=AF_INET; //especeficacao do endereco de familia 
     server_address.sin_port = htons(10000); 
-    inet_pton(AF_INET,"10.2.15.230", &server_address.sin_addr);
+    inet_pton(AF_INET,"10.2.15.230", &server_address.sin_addr); //passa
     
     
    int connection_status = connect(network_socket,(struct sockaddr*)&server_address,sizeof(server_address));
    
    if(connection_status==-1){
     printf("houve um erro");
+    
+   }else{
+        // geraId(Cliente_id,network_socket);
+        mostraMenuPrincipal(network_socket,1);
    }
     
     //receber resposta do server
-    geraId(Cliente_id,network_socket);
-    jogaJogo(network_socket,Cliente_id);
-
+    //   //geracao do id
+    // jogaJogo(network_socket,Cliente_id); //joga o jogo
+    
 
     
     
