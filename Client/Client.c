@@ -11,16 +11,26 @@
 #include <strings.h> // For bzero
 
 
+struct confCliente
+{
+   char ip_server[INET_ADDRSTRLEN];  
+   int porta; 
+   int id;   
+
+};
+
+
 void jogaJogo(int client_socket,int id_cliente){
  int linha, coluna,valor;
  int jogadas = 0;
+ int acabaJogo = 0;
  char mensagem[100];
  int * tabuleiro[9][9];
  send(client_socket,&id_cliente,sizeof(id_cliente),0);
  recv(client_socket,&mensagem,sizeof(mensagem),0);
  printf("%s",mensagem);
  escrever_logs(id_cliente,"1 - O cliente recebeu o Jogo");
- while(jogadas < 8){
+ while(1){
   recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
   mostra_grid(tabuleiro);
  recv(client_socket,&mensagem,sizeof(mensagem),0);
@@ -44,9 +54,14 @@ void jogaJogo(int client_socket,int id_cliente){
      escrever_logs(id_cliente,"3 - O cliente recebe a resposta (valor)");
      if(strcmp(mensagem,"true")==0){
       jogadas++;
-      recv(client_socket,&mensagem,sizeof(mensagem),0);
-      printf("%s",mensagem);
-      recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
+      recv(client_socket,&mensagem,sizeof(mensagem),0); //
+      printf("%s : oakdaojfoaj",mensagem);
+      //recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
+      recv(client_socket,&acabaJogo,sizeof(int),0);
+      printf("acaba Jogo: %d\n",acabaJogo);
+      if(acabaJogo==0){
+        break;
+      }
      }else{
         recv(client_socket,&mensagem,sizeof(mensagem),0);
         printf("%s",mensagem);
@@ -61,17 +76,21 @@ void jogaJogo(int client_socket,int id_cliente){
   }
 
  }
- if(jogadas == 8){
+
    recv(client_socket,&mensagem,sizeof(mensagem),0);
    printf("%s",mensagem);
    recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
    mostra_grid(tabuleiro);
    escrever_logs(id_cliente,"4 - O cliente termina o jogo");
 
- }
+ 
  
 
 }
+
+
+
+
 void escrever_logs(int id_user,char *mensagem){
     FILE *ficheiro = fopen("logs.txt", "a");
     if (ficheiro == NULL) {
@@ -83,11 +102,13 @@ void escrever_logs(int id_user,char *mensagem){
     struct tm *t = localtime(&now);
     char time_str[100];
     strftime(time_str, sizeof(time_str) - 1, "%H:%M:%S", t);
-    fprintf(ficheiro, "%d [%s] '%s'\n",id_user,time_str, mensagem);
+    fprintf(ficheiro, "%d [%s] %s\n",id_user,time_str, mensagem);
     fclose(ficheiro);
      
 
 }
+
+
 
 
 void mostra_grid(int *tabuleiro[9][9]) {
@@ -123,7 +144,7 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
 
     case 1:
         printf("esta na opcao de jogar ");
-        mostraMenuJogar(client_socket,1);
+        mostraMenuJogar(client_socket,Cliente_id);
         break;
     case 2:
         printf("esta na opcao estatisticas");
@@ -141,9 +162,11 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
 void mostraMenuJogar(int client_socket,int Cliente_id) {
     int menu_option;
     char mensagem[100];
+    int entraJogo;
     
 
     do {
+        printf("Bem vindo Cliente N%d\n",Cliente_id);
         printf("Menu Jogar\n");
         printf("1-Entrar numa sala\n");
         printf("2-Criar sala\n");
@@ -169,15 +192,18 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                     }
                     printf("Escolha uma sala: \n");
                     scanf("%d",&opcaoSala);
-                    printf("%d\n",opcaoSala);
                     printf("Debug: opcaoSala = %d, Cliente_id = %d\n", opcaoSala,Cliente_id);
-                
-                
                     sprintf(mensagem,"entrar_em_sala:%d:%d",opcaoSala,Cliente_id);
                     
                     send(client_socket,&mensagem,sizeof(mensagem),0); //+1 ?
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                     printf("%s\n",mensagem); //resposta do servidor (sucesso na criacao ou nao)
+                    memset(mensagem, 0, sizeof(mensagem));
+                    recv(client_socket,&mensagem,sizeof(mensagem),0);
+                     printf("%s\n",mensagem);
+                    if(strcmp(mensagem,"true") == 0){
+                      jogaJogo(client_socket,Cliente_id);
+                    }
                 }else{
                     printf("Nao existe nenhuma SALA \n\n\n");
                 }
@@ -209,19 +235,24 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
 
 
 
-int main(){
-    
-    int Cliente_id = 1;
+
+int main(int argc,int *argv[]){
+    struct confCliente *configuracao = malloc(sizeof(struct confCliente)); //alocar espaco para a struct
+    ler_ficheiroConf(configuracao,argv[1]);
+
+    int Cliente_id = configuracao->id;
+    printf("id_cliente: %d\n",Cliente_id);
     
     int network_socket;
+    
     network_socket = socket(AF_INET,SOCK_STREAM,0);//socket(dominio,tipo,protocolo) , AF_INET -> IPV4 , sock_stream -> TCP
 
     //especificacao um endereco para o socket
 
     struct sockaddr_in server_address;
     server_address.sin_family=AF_INET; //especeficacao do endereco de familia 
-    server_address.sin_port = htons(10000); 
-    inet_pton(AF_INET,"10.2.15.230", &server_address.sin_addr); //passa
+    server_address.sin_port = htons(configuracao->porta);
+    inet_pton(AF_INET, configuracao->ip_server, &server_address.sin_addr); //passa
     
     
    int connection_status = connect(network_socket,(struct sockaddr*)&server_address,sizeof(server_address));
@@ -231,17 +262,55 @@ int main(){
     
    }else{
         // geraId(Cliente_id,network_socket);
-        mostraMenuPrincipal(network_socket,1);
+        mostraMenuPrincipal(network_socket,Cliente_id);
    }
     
-    //receber resposta do server
-    //   //geracao do id
-    // jogaJogo(network_socket,Cliente_id); //joga o jogo
     
-
-    
-    
-    //printf("O servidor respondeu com %s ",server_response); //resposta do server
    
     return 0;
+}
+
+
+
+
+
+void ler_ficheiroConf(struct confCliente * cliente,char * nomeFicheiro){
+    char linha[256];
+    FILE *ficheiro = fopen(nomeFicheiro, "r");
+    if (ficheiro == NULL) {
+        perror("Error opening file");
+        return;
+    }
+       while (fgets(linha, sizeof(linha), ficheiro) != NULL) {
+        // Remover nova linha, se existir
+        size_t len = strlen(linha);
+        if (len > 0 && linha[len - 1] == '\n') {
+            linha[len - 1] = '\0';
+        }
+
+        // Verificar se a linha contém "SERVER_IP"
+        if (strncmp(linha, "SERVER_IP:", 10) == 0) {
+            // Copiar o IP após "SERVER_IP:"
+            
+            strcpy(cliente->ip_server, linha + 10);
+            printf("%s\n",cliente->ip_server);
+            
+        }
+        // Verificar se a linha contém "PORTA"
+        else if (strncmp(linha, "PORTA:", 6) == 0) {
+            // Converter a porta de string para inteiro
+            cliente->porta = atoi(linha + 6);
+            printf("%d\n",cliente->porta);
+        }
+        else if (strncmp(linha, "ID:", 3) == 0) {
+            // Converter a porta de string para inteiro
+            cliente->id = atoi(linha + 3);
+            printf("%d\n",cliente->id);
+        }
+    }
+
+
+
+    fclose(ficheiro);
+    
 }

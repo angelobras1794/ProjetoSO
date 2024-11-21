@@ -78,7 +78,7 @@ int main(int argc,int *argv[]){
      ler_ficheiroConf(configuracao,argv[1]);
 
     srand(time(NULL)); //usado para a geracao de numeros aleatorios
-    struct jogoSoduku salas[MAX_SALAS];
+    struct jogoSoduku* salas = (struct jogoSoduku*)malloc(MAX_SALAS * sizeof(struct jogoSoduku));
     for(int i=0;i<MAX_SALAS;i++){
          salas[i].idSala=0;
          salas[i].nJogadores=0;
@@ -103,6 +103,12 @@ int main(int argc,int *argv[]){
     server_address.sin_port = htons(configuracao->porta);   //converter de inteiro para ordem de bytes de rede   
     inet_pton(AF_INET, configuracao->ip_server, &server_address.sin_addr); //passar de char para formato ip
        
+    
+    int opt = 1;
+    if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
+        perror("setsockopt");
+        exit(EXIT_FAILURE);
+    }
 
    // ligar o socket para o ip especificado e porta
    bind(server_socket,(struct sockaddr*) &server_address,sizeof(server_address));
@@ -112,7 +118,7 @@ int main(int argc,int *argv[]){
    //while(1){} loop principal , para o servidor estar sempre a receber pedidos
     int client_socket;
     while(true){
-        
+       
     client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size); //servidor aceita clientes
 
 

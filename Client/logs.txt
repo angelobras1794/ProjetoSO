@@ -466,3 +466,65 @@
 1 [09:14:05] '2 - O cliente enviou a resposta (valor)'
 1 [09:14:05] '3 - O cliente recebe a resposta (valor)'
 1 [09:14:35] '1 - O cliente recebeu o Jogo'
+1 [01:02:49] 1 - O cliente recebeu o Jogo
+1 [01:03:02] 2 - O cliente enviou a resposta (linha,coluna)
+1 [01:03:02] 3 - O cliente recebe a resposta (linha,coluna)
+1 [01:06:44] 1 - O cliente recebeu o Jogo
+1 [01:09:25] 1 - O cliente recebeu o Jogo
+1 [01:18:05] 1 - O cliente recebeu o Jogo
+1 [01:30:12] 1 - O cliente recebeu o Jogo
+1 [01:31:35] 1 - O cliente recebeu o Jogo
+1 [01:32:40] 1 - O cliente recebeu o Jogo
+1 [10:14:34] 1 - O cliente recebeu o Jogo
+1 [10:15:11] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:15:11] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:15:19] 2 - O cliente enviou a resposta (valor)
+1 [10:15:19] 3 - O cliente recebe a resposta (valor)
+1 [10:15:19] 4 - O cliente termina o jogo
+1 [10:17:03] 1 - O cliente recebeu o Jogo
+1 [10:17:10] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:17:10] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:17:28] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:17:28] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:17:30] 2 - O cliente enviou a resposta (valor)
+1 [10:17:30] 3 - O cliente recebe a resposta (valor)
+1 [10:17:38] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:17:38] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:17:39] 2 - O cliente enviou a resposta (valor)
+1 [10:17:39] 3 - O cliente recebe a resposta (valor)
+1 [10:17:39] 4 - O cliente termina o jogo
+1 [10:21:37] 1 - O cliente recebeu o Jogo
+1 [10:21:40] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:21:40] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:21:44] 2 - O cliente enviou a resposta (valor)
+1 [10:21:44] 3 - O cliente recebe a resposta (valor)
+1 [10:21:44] 4 - O cliente termina o jogo
+1 [10:25:21] 1 - O cliente recebeu o Jogo
+1 [10:25:26] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:25:26] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:25:28] 2 - O cliente enviou a resposta (valor)
+1 [10:25:28] 3 - O cliente recebe a resposta (valor)
+1 [10:26:44] 1 - O cliente recebeu o Jogo
+1 [10:26:48] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:26:48] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:26:49] 2 - O cliente enviou a resposta (valor)
+1 [10:26:49] 3 - O cliente recebe a resposta (valor)
+1 [10:28:18] 1 - O cliente recebeu o Jogo
+1 [10:28:20] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:28:20] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:28:21] 2 - O cliente enviou a resposta (valor)
+1 [10:28:21] 3 - O cliente recebe a resposta (valor)
+1 [10:29:47] 1 - O cliente recebeu o Jogo
+1 [10:29:54] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:29:54] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:29:56] 2 - O cliente enviou a resposta (valor)
+1 [10:29:56] 3 - O cliente recebe a resposta (valor)
+1 [10:32:24] 1 - O cliente recebeu o Jogo
+1 [10:32:27] 2 - O cliente enviou a resposta (linha,coluna)
+1 [10:32:27] 3 - O cliente recebe a resposta (linha,coluna)
+1 [10:32:30] 2 - O cliente enviou a resposta (valor)
+1 [10:32:30] 3 - O cliente recebe a resposta (valor)
+1 [15:55:56] 1 - O cliente recebeu o Jogo
+2 [23:47:02] 1 - O cliente recebeu o Jogo
+2 [23:47:06] 2 - O cliente enviou a resposta (linha,coluna)
+2 [23:47:06] 3 - O cliente recebe a resposta (linha,coluna)

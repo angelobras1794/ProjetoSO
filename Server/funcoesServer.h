@@ -17,7 +17,7 @@ struct Cliente
 struct jogoSoduku
 {
     int idSala;
-    char nome[80];
+    char nome[100];
     int nJogadores;
     struct Cliente jogadores[MAX_Jogadores];
     int idTabuleiro;
@@ -57,4 +57,5 @@ bool isValid(int *grid[9][9], int linha, int coluna, int valor);
 void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas);
 void entraClienteSala(int client_socket,int i,struct jogoSoduku* salas,int id);
 void gerarSalasDisponiveis(int *totalSalas, struct jogoSoduku* salas, char salasDisponiveis[][100]);
-int load_sudoku_game(const char *filename,struct jogoSoduku *game);
+int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index);
+int verificaFimJogo(struct jogoSoduku* game);
