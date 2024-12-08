@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+
  
 //sockets
 #include <sys/types.h>
@@ -20,71 +21,50 @@ struct confCliente
 };
 
 
-void jogaJogo(int client_socket,int id_cliente){
- int linha, coluna,valor;
- int jogadas = 0;
- int acabaJogo = 0;
- char mensagem[100];
- int * tabuleiro[9][9];
- send(client_socket,&id_cliente,sizeof(id_cliente),0);
- recv(client_socket,&mensagem,sizeof(mensagem),0);
- printf("%s",mensagem);
- escrever_logs(id_cliente,"1 - O cliente recebeu o Jogo");
- while(1){
-  recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
-  mostra_grid(tabuleiro);
- recv(client_socket,&mensagem,sizeof(mensagem),0);
- printf("%s",mensagem);
- scanf("%d",&linha);
- send(client_socket,&linha,sizeof(linha),0);     //envia a linha
- recv(client_socket,&mensagem,sizeof(mensagem),0);
- printf("%s",mensagem);
- scanf("%d",&coluna);
- send(client_socket,&coluna,sizeof(coluna),0);   //envia a coluna
- escrever_logs(id_cliente,"2 - O cliente enviou a resposta (linha,coluna)");
- recv(client_socket,&mensagem,sizeof(mensagem),0);
- escrever_logs(id_cliente,"3 - O cliente recebe a resposta (linha,coluna)");
-  if(strcmp(mensagem,"true")==0){
-     recv(client_socket,&mensagem,sizeof(mensagem),0);
-     printf("%s",mensagem);
-     scanf("%d", &valor);
-     send(client_socket,&valor,sizeof(valor),0);
-     escrever_logs(id_cliente,"2 - O cliente enviou a resposta (valor)");
-     recv(client_socket,&mensagem,sizeof(mensagem),0);
-     escrever_logs(id_cliente,"3 - O cliente recebe a resposta (valor)");
-     if(strcmp(mensagem,"true")==0){
-      jogadas++;
-      recv(client_socket,&mensagem,sizeof(mensagem),0); //
-      printf("%s : oakdaojfoaj",mensagem);
-      //recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
-      recv(client_socket,&acabaJogo,sizeof(int),0);
-      printf("acaba Jogo: %d\n",acabaJogo);
-      if(acabaJogo==0){
-        break;
-      }
-     }else{
-        recv(client_socket,&mensagem,sizeof(mensagem),0);
-        printf("%s",mensagem);
+void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala){
+    char mensagem[100];
+    int * tabuleiro[9][9]; // Tabuleiro como array bidimensional
+    int linhaRandom, colunaRandom;
+    int sala=opcaoSala - 1;
+    srand(time(NULL));   // Inicializar a semente aleatória
+    
+    while (1) {
+        // Receber o tabuleiro do servidor
         recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
-     }
-  }else{
-      recv(client_socket,&mensagem,sizeof(mensagem),0);
-      printf("\n%s",mensagem);
-      recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
-      
-      
-  }
+        mostra_grid(&tabuleiro); // Exibir o tabuleiro atualizado
 
- }
+        // Procurar uma posição vazia
+        do {
+            linhaRandom = rand() % 9;  // De 0 a 8
+            colunaRandom = rand() % 9; // De 0 a 8
+        } while (tabuleiro[linhaRandom][colunaRandom] != 0);
 
-   recv(client_socket,&mensagem,sizeof(mensagem),0);
-   printf("%s",mensagem);
-   recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
-   mostra_grid(tabuleiro);
-   escrever_logs(id_cliente,"4 - O cliente termina o jogo");
+        // Escolher o valor (aqui, você pode implementar lógica adicional)
+        int valorEscolhido = (rand() % 9) + 1; // Exemplo: sempre jogar 1
 
- 
- 
+        // Enviar a jogada formatada
+        sprintf(mensagem, "jogo:%d,%d,%d,%d:%d",sala,linhaRandom, colunaRandom, valorEscolhido, id_cliente);
+        send(client_socket, mensagem, sizeof(mensagem), 0);
+        printf("Jogada enviada: linha=%d, coluna=%d, valor=%d\n", linhaRandom, colunaRandom, valorEscolhido);
+
+        usleep(2000000); // fica 2 segundos parado
+
+        recv(client_socket,mensagem,sizeof(mensagem),0);
+        printf("%s\n",mensagem);
+
+        usleep(2000000); // fica 2 segundos parado
+        // system("clear"); //limpar a consola
+
+        //verificar se o jogo acabou
+        recv(client_socket,mensagem,sizeof(mensagem),0);
+        if(strcmp(mensagem,"end")==0){
+            printf("acabei o jogo lol\n");
+            break;
+        }
+    }
+    //o jogo acabou
+    recv(client_socket,mensagem,sizeof(mensagem),0);
+    printf("%s\n",mensagem);
 
 }
 
@@ -129,6 +109,7 @@ void mostra_grid(int *tabuleiro[9][9]) {
 
 void mostraMenuPrincipal(int client_socket,int Cliente_id){
     int menu_option;
+    char mensagem[100];
 
     printf("Bem vindo ao Servido Sodoku!!!\n");
     printf("------------------------------------------\n\n");
@@ -149,12 +130,16 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
     case 2:
         printf("esta na opcao estatisticas");
         break;
+    case 3:
+        printf("A sair do jogo");
+        sprintf(mensagem,"sair:SAIR:%d",Cliente_id);
+        send(client_socket,&mensagem,sizeof(mensagem),0);    
     default:
         printf("input invalido");
         break;
     }
 
-    }while(menu_option !=3);
+    }while(menu_option != 3);
 
 
 }
@@ -202,7 +187,8 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                      printf("%s\n",mensagem);
                     if(strcmp(mensagem,"true") == 0){
-                      jogaJogo(client_socket,Cliente_id);
+                    printf("ola tudo bem amigo\n");
+                    jogoAutonomo(client_socket,Cliente_id,opcaoSala);
                     }
                 }else{
                     printf("Nao existe nenhuma SALA \n\n\n");
@@ -258,21 +244,16 @@ int main(int argc,int *argv[]){
    int connection_status = connect(network_socket,(struct sockaddr*)&server_address,sizeof(server_address));
    
    if(connection_status==-1){
-    printf("houve um erro");
+        printf("houve um erro");
     
    }else{
         // geraId(Cliente_id,network_socket);
         mostraMenuPrincipal(network_socket,Cliente_id);
    }
+   close(network_socket);
     
-    
-   
-    return 0;
+   return 0;
 }
-
-
-
-
 
 void ler_ficheiroConf(struct confCliente * cliente,char * nomeFicheiro){
     char linha[256];
@@ -309,8 +290,10 @@ void ler_ficheiroConf(struct confCliente * cliente,char * nomeFicheiro){
         }
     }
 
-
-
     fclose(ficheiro);
     
 }
+
+
+
+

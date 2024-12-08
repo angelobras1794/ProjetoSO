@@ -21,14 +21,12 @@ struct jogoSoduku
     int nJogadores;
     struct Cliente jogadores[MAX_Jogadores];
     int idTabuleiro;
-    int *tabuleiro[9][9];
-    int *solucTabuleiro[9][9];
+    int *tabuleiroJogavel[9][9]; // Tabuleiro que vai ser jogado
+    int *tabuleiro[9][9];      // Tabuleiro como array bidimensional
+    int *solucTabuleiro[9][9];  // Solução do tabuleiro
+    bool Disponivel;
     
 };
-
-
-
-
 
 struct confServer
 {
@@ -49,7 +47,6 @@ void remove_newline(char *str);
 int is_empty_or_whitespace(const char *str);
 void ler_ficheiroConf(struct confServer * server,char * nomeFicheiro);
 void removeNumbers(int *grid[9][9], int count);
-int isSolvable(int *grid[9][9]);
 int solveSudoku(int *grid[9][9], int row, int col);
 bool isValid(int *grid[9][9], int linha, int coluna, int valor);
 
@@ -59,3 +56,7 @@ void entraClienteSala(int client_socket,int i,struct jogoSoduku* salas,int id);
 void gerarSalasDisponiveis(int *totalSalas, struct jogoSoduku* salas, char salasDisponiveis[][100]);
 int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index);
 int verificaFimJogo(struct jogoSoduku* game);
+bool is_playable(int * board[9][9]);
+void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_socket,int id_cliente);
+void atualizaPontos(struct jogoSoduku *game,int id_cliente,int client_socket);
+void resetaSala(struct jogoSoduku *game);

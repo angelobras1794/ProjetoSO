@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h> 
  
 //sockets
 #include <sys/types.h>
@@ -15,6 +16,8 @@
 #define N_CLIENTES 100
 #define MAX_SALAS  3
 #define MAX_JOGADORES 1
+
+
 
 
 void remove_newline(char *str) {
@@ -94,97 +97,48 @@ bool verifica_jogada(struct jogoSoduku * Jogo, int linha, int coluna, int valor)
 
 }
 
-void jogo(struct jogoSoduku * Jogo,int client_socket){
-    int linha, coluna,valor,id_cliente;
-    int jogadas = 0;
-    int acabaJogo=0;
 
-    FILE * ficheiro = NULL;
+
+
+void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_socket,int id_cliente){
     char mensagem[100];
-    recv(client_socket,&id_cliente,sizeof(id_cliente),0);
-    strcpy(mensagem, "\n Bem vindo ao jogo do Soduku\n");
-    send(client_socket,&mensagem,sizeof(mensagem),0);
-   //printf("\n Bem vindo ao jogo do Soduku\n");
-    while (verificaFimJogo(Jogo))
-    {
-    //envia o jogo para o cliente    
-    send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
-    printf("%d\n\n",Jogo->tabuleiro[0][1]);
-    mostra_grid(Jogo->tabuleiro);
-    escrever_logs(id_cliente,"1 - O servidor envia o jogo");
-   
-    
-    strcpy(mensagem, "\n Escolha uma linha\n");
-    send(client_socket,&mensagem,sizeof(mensagem),0);
-    // //recebe a linha escolhida pelo cliente
-    recv(client_socket,&linha,sizeof(linha),0);
-   
-    linha--;  
-    printf("\n%d\n",linha);
-   
-    strcpy(mensagem, "\nPorfavor insira a coluna\n");
-    send(client_socket,&mensagem,sizeof(mensagem),0); 
-   
-    //  //recebe a coluna escolhida pelo cliente
-    recv(client_socket,&coluna,sizeof(coluna),0);
-    escrever_logs(id_cliente,"2 - O servidor recebe a resposta(linha,coluna)");
-    escrever_logs(id_cliente,"3 - O servidor verifica a resposta(linha,coluna)");
-    coluna--;
-    printf("%d\n",coluna);
-    if(Jogo->tabuleiro[linha][coluna] == 0){
-        escrever_logs(id_cliente,"3 - O servidor envia a resposta");
-        strcpy(mensagem,"true");
+    if(Jogo->tabuleiroJogavel[linha][coluna] != 0){
+        strcpy(mensagem,"Jogada invalida, a casa foi preenchida por outro jogador\n");
         send(client_socket,&mensagem,sizeof(mensagem),0);
-        strcpy(mensagem, "\nPorfavor insira o valor\n");
-        send(client_socket,&mensagem,sizeof(mensagem),0); //Acontece ate aqui
-        recv(client_socket,&valor,sizeof(valor),0);
-        escrever_logs(id_cliente,"2 - O servidor recebe a resposta");
-        printf("%d\n",valor);
-        escrever_logs(id_cliente,"3 - O servidor verifica a resposta(valor)");
-        if(verifica_jogada(Jogo,linha,coluna,valor)){
-            strcpy(mensagem, "true");
-            send(client_socket,mensagem,sizeof(mensagem),0);
-            Jogo->tabuleiro[linha][coluna] = valor;
-            jogadas++;
-            strcpy(mensagem, "\nJogada efetuada com sucesso\n Faca A sua proxima jogada\n"); //
-            send(client_socket,&mensagem,sizeof(mensagem),0); 
-            escrever_logs(id_cliente,"4 - O servidor envia a resposta"); //
-            //send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0); 
-            if(verificaFimJogo(Jogo)==0){
-            acabaJogo=0;
-            send(client_socket,&acabaJogo,sizeof(int),0);
-            }else{
-                acabaJogo=1;
-            send(client_socket,&acabaJogo,sizeof(int),0);    
-            }
-        }else{
-           strcpy(mensagem,"false");
-           send(client_socket,mensagem,sizeof(mensagem),0);
-           sprintf(mensagem, "Erro: O valor %d ja existe na linha ou coluna ou quadrado\n", valor);
-           escrever_logs(id_cliente,mensagem);
-           send(client_socket,&mensagem,sizeof(mensagem),0); 
-           escrever_logs(id_cliente,"4 - O servidor envia a resposta");
-           send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
-        }
-    }else{
-        escrever_logs(id_cliente,"3 - O servidor envia a resposta");
-        strcpy(mensagem,"false");
-        send(client_socket,mensagem,sizeof(mensagem),0);
-        sprintf(mensagem,"\nErro: A posicao (%d,%d) ja esta preenchida. Tenta outra posicao\n",linha+1,coluna+1);
-        escrever_logs(id_cliente,mensagem);
-        send(client_socket,&mensagem,sizeof(mensagem),0);
-        escrever_logs(id_cliente,"4 - O servidor envia a resposta");
-        send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
         
-        
-     }
-   }
-    strcpy(mensagem, "\nParabens, Jogo concluido\n");
-    send(client_socket,&mensagem,sizeof(mensagem),0);
-    send(client_socket,&Jogo->tabuleiro,sizeof(Jogo->tabuleiro),0);
-    escrever_logs(id_cliente,"5 - O servidor termina o jogo ");
-    
+    }
+    else if(verifica_jogada(Jogo,linha,coluna,valor)){
+            Jogo->tabuleiroJogavel[linha][coluna] = valor;
+             if (Jogo->solucTabuleiro[linha][coluna]==valor) {
+                strcpy(mensagem, "\nJogada efetuada com sucesso, mais 10 Pontos Ganhos\n Faca A sua proxima jogada\n"); //
+                send(client_socket,&mensagem,sizeof(mensagem),0);
+                atualizaPontos(&Jogo,id_cliente,client_socket);
+            } else {
+                strcpy(mensagem,"Jogada válida, mas a solucao nao 'e a correta. Revertendo...\n");
+                send(client_socket,&mensagem,sizeof(mensagem),0); 
+                Jogo->tabuleiroJogavel[linha][coluna] = 0; // Reverte a jogada
+            }      
+    }
+    else{
+            sprintf(mensagem, "Erro: O valor %d ja existe na linha ou coluna ou quadrado\n", valor);
+            escrever_logs(id_cliente,mensagem);
+            send(client_socket,&mensagem,sizeof(mensagem),0);  
+    }
 
+    if(verificaFimJogo(Jogo)==0){
+            strcpy(mensagem,"end");
+            printf("o jogo acabou\n");
+            send(client_socket,&mensagem,sizeof(mensagem),0);
+            strcpy(mensagem,"\nParabens voce terminou o jogo\n");
+            send(client_socket,&mensagem,sizeof(mensagem),0);
+            resetaSala(Jogo);
+    }else{
+            printf("o jogo continua\n");
+            strcpy(mensagem,"continue");
+            send(client_socket,&mensagem,sizeof(mensagem),0);
+            send(client_socket,&Jogo->tabuleiroJogavel,sizeof(Jogo->tabuleiroJogavel),0);
+        }
+   
 }
 
 //escrever logs server
@@ -234,8 +188,6 @@ void ler_ficheiroConf(struct confServer * server,char * nomeFicheiro){
             printf("%d\n",server->porta);
         }
     }
-
-
 
     fclose(ficheiro);
     
@@ -329,8 +281,7 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
     // Dividir a mensagem em ação e parâmetro
     int scanned = sscanf(mensagem, "%[^:]:%[^:]:%d", acao, parametro, &id_cliente);
     printf("Scanned: %d, Ação: '%s', Parâmetro: '%s', ID Cliente: '%d'\n", scanned, acao, parametro, id_cliente);
-    printf("Jogadores na SALA1: %d , socket : %d , id : %d, : tabuleiro[0][1] : %d \n ",salas[1].nJogadores,salas[1].jogadores[0].client_socket,salas[1].jogadores[0].id,salas[1].tabuleiro[0][1]);
-
+    
     if (strcmp(acao,"entrar_em_sala") == 0) {
         printf("ENTAR SALA\n");
         int sala_encontrada = 0;
@@ -352,11 +303,16 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
                 escrever_logs(id_cliente,escreveLog);
                 //VERIFICAR SE PODE COMECAR O jogo
                 if(salas[i].nJogadores == MAX_JOGADORES){
-                 send(client_socket,"true",4,0);  
-                 jogo(&salas[i],client_socket);
+                 strcpy(resposta_servidor,"true"); 
+                 send(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);
+                 send(client_socket,&salas[i].tabuleiroJogavel,sizeof(salas[i].tabuleiroJogavel),0);  //novo
+                //  jogo2(&salas[i],client_socket,id_cliente);
 
                 }
-                send(client_socket,"fals",4,0);
+                else{
+                    strcpy(resposta_servidor,"a tua prima"); 
+                    send(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);  
+                }
                 }else{
                 strcpy(resposta_servidor,"Sala atingiu o limite maximo de jogadores");
                 send(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);   
@@ -392,21 +348,18 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
             escrever_logs(id_cliente,escreveLog);
            /// 
         }else if (*totalSalas < MAX_SALAS) {
-            printf("criar SALAS4242\n");
-            printf("o parametro :%s\n",parametro);
             strcpy(salas[(*totalSalas)].nome,parametro); 
-            printf("o parametro depois :%s\n",parametro);
             verifica_ID(client_socket,salas);
             (*totalSalas)++;
             printf("\ntotal Salas: %d\n",*totalSalas);
             strcpy(resposta_servidor,"Sala criada com sucesso");
             printf("%s\n", resposta_servidor);
-            send(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
+            send(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);
+
             printf("Sala '%s' criada\n", parametro);
             sprintf(escreveLog,"O user %d criou a sala com o nome %s",id_cliente,parametro);
             escrever_logs(id_cliente,escreveLog);
             int indice = *totalSalas;
-            printf("indixe : %d\n",indice);
             
             if(load_sudoku_game("Jogos.json",salas,indice)){
                 printf("deu certo \n");
@@ -435,8 +388,40 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
           escrever_logs(id_cliente,escreveLog);
           }
           
-    }else{
-        send(client_socket,"Comando invalido\n",18, 0);
+    }else if(strcmp(acao,"jogo") == 0){
+        printf("JOGO\n");
+        const char delimitador[] = ",";
+
+        int sala, linha, coluna, valor;
+
+        // Tokenizar e converter para inteiro
+        char *token = strtok(parametro,delimitador); // Primeira parte
+        if (token != NULL) sala = atoi(token);
+        printf("Sala: %d\n", sala);
+
+        token = strtok(NULL, delimitador); // Próxima parte
+        if (token != NULL) linha = atoi(token);
+        printf("Linha: %d\n", linha);
+
+        token = strtok(NULL, delimitador); // Próxima parte
+        if (token != NULL) coluna = atoi(token);
+        printf("Coluna: %d\n", coluna);
+
+        token = strtok(NULL, delimitador); // Última parte
+        if (token != NULL) valor = atoi(token);
+        printf("Valor: %d\n", valor);
+        jogo3(linha,coluna,valor,&salas[sala],client_socket,id_cliente);
+
+    }
+    else if(strcmp(acao,"sair") == 0){
+        printf("SAIR\n");
+        sprintf(escreveLog,"O user %d esta a tentar sair da ligacao",id_cliente);
+        escrever_logs(id_cliente,escreveLog);
+        close(client_socket);
+
+    }
+    else{
+        printf("Ação desconhecida\n");
     }
     return;
 }
@@ -458,6 +443,7 @@ void gerarSalasDisponiveis(int *totalSalas, struct jogoSoduku* salas, char salas
         sprintf(salasDisponiveis[i], "%d - %s", salas[i].idSala, salas[i].nome);
     }
 }
+
 
 int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     int N=9;
@@ -547,7 +533,6 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
         }
         printf("\n");
     }
-    mostra_grid(game[index].tabuleiro);
 
     // Load the solution
      
@@ -571,7 +556,8 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
         }
     }
 
-    
+    memcpy(game[index].tabuleiroJogavel, game[index].tabuleiro, sizeof(game[index].tabuleiro));
+    mostra_grid(game[index].tabuleiroJogavel);
     cJSON_Delete(root);
     printf("Error: 'tabuleiroInic' is not an array4\n");
     return 1;  // Successfully loaded the game
@@ -580,10 +566,31 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
 int verificaFimJogo(struct jogoSoduku* game){
     for(int i =0;i<9;i++){
         for(int j = 0 ;j<9;j++){
-            if(game->tabuleiro[i][j]==0){return 1;}
+            if(game->tabuleiroJogavel[i][j]==0){return 1;}
         }
     }
     return 0;
+}
+
+void atualizaPontos(struct jogoSoduku *game,int id_cliente,int client_socket){
+    for(int i =0;i<MAX_JOGADORES;i++){
+        if(game->jogadores[i].id == id_cliente){
+            game->jogadores[i].pontos+=10;
+        }
+    }
+}
+
+void resetaSala(struct jogoSoduku *game){
+    for(int i =0;i<MAX_JOGADORES;i++){
+        game->jogadores[i].id = 0;
+        game->jogadores[i].client_socket = 0;
+        game->jogadores[i].pontos = 0;
+    }
+    game->nJogadores = 0;
+    printf("Chegeui aqui\n");
+    memset(game->tabuleiroJogavel,'\0',sizeof(game->tabuleiroJogavel));
+    memcpy(game->tabuleiroJogavel, game->tabuleiro, sizeof(game->tabuleiro));
+    printf("Chegeui aqui\n");
 }
 
 

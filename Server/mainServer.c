@@ -54,23 +54,11 @@ void verifica_ID(int client_socket,struct jogoSoduku *salas){
 
 void handle_client(int server_socket,int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas){
     char mensagem[100];
-    // verifica_ID(server_socket,client_socket,arr_clientes);
-    printf("%dnknkn :: \n",*totalSalas);
-    
-    // FILE * ficheiro;
-    // struct jogoSoduku *jogos = malloc(sizeof(struct jogoSoduku));
-    // criarJogo(ficheiro,jogos,client_socket);
-    
+        
     while(true){
       recv(client_socket,mensagem,sizeof(mensagem),0);
       processarMensagem(mensagem,client_socket,salas,salasDisponiveis,totalSalas);
-      
-
-
     }
-    
-    
-
 }
 
 int main(int argc,int *argv[]){
@@ -87,10 +75,6 @@ int main(int argc,int *argv[]){
     }
     int totalSalas = 0;
     char salasDisponiveis[MAX_SALAS][100];
-    printf("%d\n",totalSalas);
-    
-     
-    
     //criar o server socket
     int server_socket;
     server_socket = socket(AF_INET,SOCK_STREAM,0); //socket(dominio,tipo,protocolo) , AF_INET -> IPV4 , sock_stream -> TCP
@@ -115,16 +99,15 @@ int main(int argc,int *argv[]){
 
    listen(server_socket,10); //consegue ter pelo menos 10 clientes
 
-   //while(1){} loop principal , para o servidor estar sempre a receber pedidos
     int client_socket;
-    while(true){
+    
        
     client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size); //servidor aceita clientes
 
 
     handle_client(server_socket,client_socket,salas,salasDisponiveis,&totalSalas);   //funcao para tratar do cliente 
      
-    }
+    
                                                                            
     return 0;
 }
