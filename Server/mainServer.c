@@ -29,23 +29,15 @@ struct thread_args {
     struct jogoSoduku *salas;
     char (*salasDisponiveis)[100];
     int *totalSalas;
-    int *totalClientes;
+    // int *totalClientes;
+    struct estatisticaServer *estatistica;
     struct mutex_threads *mutexes;
 };
 
 
 
 
-bool percorrer_arr(struct jogoSoduku *salas,int sala_id){
-    for(int i=0;i<sizeof(salas);i++){
-        if(salas[i].idSala == sala_id){
-            return true;
-        }
-    }
-     return false;
 
-
-}
 
 void insere_id(struct jogoSoduku *salas,int sala_id){
     for(int i = 0; i<sizeof(salas);i++){
@@ -83,7 +75,8 @@ void * handle_client(void *args){
     struct jogoSoduku *salas = threadArgs->salas;
     char (*salasDisponiveis)[100] = threadArgs->salasDisponiveis;
     int *totalSalas = threadArgs->totalSalas;
-    int *totalClientes = threadArgs->totalClientes;
+    // int *totalClientes = threadArgs->totalClientes;
+    struct estatisticaServer *estatistica = threadArgs->estatistica;
     struct mutex_threads *mutexes = threadArgs->mutexes;
     
 
@@ -91,7 +84,7 @@ void * handle_client(void *args){
         
     while (recv(client_socket, mensagem, sizeof(mensagem), 0) > 0) {
         
-        processarMensagem(mensagem, client_socket,salas,salasDisponiveis,totalSalas,mutexes,totalClientes);   
+        processarMensagem(mensagem, client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica);   
     }
 }
 
@@ -103,22 +96,18 @@ int main(int argc,int *argv[]){
 
     srand(time(NULL)); //usado para a geracao de numeros aleatorios
     struct jogoSoduku* salas = (struct jogoSoduku*)malloc(MAX_SALAS * sizeof(struct jogoSoduku));
-    for(int i=0;i<MAX_SALAS;i++){
-         salas[i].idSala=0;
-         salas[i].nJogadores=0;
-         salas[i].nJogadoresEspera=0;
-         salas[i].idTabuleiro=0;
-        
-    }
-    
+    void salasInit(salas);
     int totalSalas = 0;
     int clientesConectados = 0;
     char salasDisponiveis[MAX_SALAS][100];
     struct mutex_threads *mutexes = malloc(sizeof(struct mutex_threads));
-    pthread_mutex_init(&mutexes->criar_sala, NULL);
-    pthread_mutex_init(&mutexes->entrar_sala, NULL);
-    pthread_mutex_init(&mutexes->jogar_sala, NULL);
-
+    mutexes_init(mutexes);
+    struct estatisticaServer *estatistica = malloc(sizeof(struct estatisticaServer));
+    estatisticaServerInit(estatistica);
+    printf("Clientes conectados: %d\n", (estatistica->clientesConectados));
+    printf("Tabuleiros resolvidos: %d\n", (estatistica->tabuleirosResolvidos));
+    printf("Tabuleiros em resolucao: %d\n", (estatistica->tabuleirosEmResolucao));
+    
     
 
 
@@ -151,8 +140,6 @@ int main(int argc,int *argv[]){
     while (1){
     client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size); //servidor aceita clientes
 
-
-
     struct thread_args *args = malloc(sizeof(struct thread_args));
 
 
@@ -161,14 +148,16 @@ int main(int argc,int *argv[]){
     args->salas = salas;
     args->salasDisponiveis = salasDisponiveis;
     args->totalSalas = &totalSalas;
-    args->totalClientes = &clientesConectados;
+    // args->totalClientes = &clientesConectados;
+    args->estatistica = estatistica;
     args->mutexes = mutexes;
 
     pthread_t t_id;
     pthread_mutex_lock(&mutex);
-    *(args->totalClientes)+=1;
+    // *(args->totalClientes)+=1;
+    args->estatistica->clientesConectados+=1;
     pthread_mutex_unlock(&mutex);
-    printf("Clientes conectados: %d\n", *(args->totalClientes));
+    printf("Clientes conectados: %d\n", (args->estatistica->clientesConectados));
     if (pthread_create(&t_id, NULL, handle_client, (void *)args) != 0) {
         perror("pthread_create failed");
         free(args);
@@ -181,17 +170,5 @@ int main(int argc,int *argv[]){
                                                                          
     return 0;
 }
-
-
-
-
-
- 
- 
-
-
-
-
-
 
 

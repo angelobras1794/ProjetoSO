@@ -36,6 +36,25 @@ void simple_barrier_wait(struct simple_barrier_t *barrier) {
     sem_post(&barrier->barreira);
 }
 
+void mutexes_init(struct mutex_threads *mutexes) {
+    if (pthread_mutex_init(&mutexes->criar_sala, NULL) != 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+    if (pthread_mutex_init(&mutexes->entrar_sala, NULL) != 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+    if (pthread_mutex_init(&mutexes->jogar_sala, NULL) != 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+    if (pthread_mutex_init(&mutexes->sair_sala, NULL) != 0) {
+        perror("Failed to initialize mutex");
+        exit(EXIT_FAILURE);
+    }
+}
+
 
 
 

@@ -47,12 +47,12 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala){
         send(client_socket, mensagem, sizeof(mensagem), 0);
         printf("Jogada enviada: linha=%d, coluna=%d, valor=%d\n", linhaRandom, colunaRandom, valorEscolhido);
 
-        usleep(2000000); // fica 2 segundos parado
+        usleep(500000); // fica 2 segundos parado
 
         recv(client_socket,mensagem,sizeof(mensagem),0);
         printf("%s\n",mensagem);
 
-        usleep(2000000); // fica 2 segundos parado
+        usleep(500000); // fica 2 segundos parado
         // system("clear"); //limpar a consola
 
         //verificar se o jogo acabou
@@ -128,7 +128,7 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
         mostraMenuJogar(client_socket,Cliente_id);
         break;
     case 2:
-        printf("esta na opcao estatisticas");
+        mostraMenuEstatisticas(client_socket,Cliente_id);
         break;
     case 3:
         printf("A sair do jogo");
@@ -223,6 +223,79 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
     } while (menu_option != 3);
 }
 
+void mostraMenuEstatisticas(int client_socket,int Cliente_id){
+    int menu_option;
+    char mensagem[100];
+    char resposta_servidor[200];
+    
+    do {
+        printf("\n Bem vindo Cliente N%d\n",Cliente_id);
+        printf("Menu Estatistica\n");
+        printf("1-Estatistica do Servidor\n");
+        printf("2-Estatistica da Sala\n");
+        printf("3-Voltar\n");
+        printf("Por favor, selecione uma opcao: \n");
+        scanf("%d", &menu_option);
+
+        switch (menu_option)
+        {
+        case 1:
+            
+            printf("Estatistica do Servidor\n");
+            memset(mensagem, 0, sizeof(mensagem));
+            sprintf(mensagem,"estatisticas:servidor:%d",Cliente_id);
+            send(client_socket,&mensagem,strlen(mensagem), 0);
+            recv(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
+            printf("%s\n\n",resposta_servidor);
+            break;
+        case 2:  {
+            int opcaoSala=0;
+            int totalRooms=0;
+            memset(mensagem, 0, sizeof(mensagem));
+            sprintf(mensagem,"salasCriadas:ola:%d",Cliente_id);
+            send(client_socket,&mensagem,strlen(mensagem), 0); //faz isto
+            memset(mensagem, 0, sizeof(mensagem));
+            recv(client_socket,&totalRooms,sizeof(totalRooms),0);             //nao faz print 
+            if(totalRooms != 0){
+                    char salas[totalRooms][100]; //fazer a parte das salas para o cliente
+                    recv(client_socket,&salas,sizeof(salas),0);
+                    printf("Salas Disponiveis: \n");
+                    for(int z=0;z<totalRooms;z++){
+                        printf("%s\n",salas[z]);
+                    }
+                    printf("0-voltar\n");
+                    printf("Escolha uma sala: \n");
+                    scanf("%d",&opcaoSala);
+                    if (opcaoSala != 0)
+                    {
+                    sprintf(mensagem,"estatisticas:%d:%d",opcaoSala,Cliente_id);
+                    send(client_socket,&mensagem,sizeof(mensagem),0); // mesangem entrar sala
+                    recv(client_socket,&mensagem,sizeof(mensagem),0);
+                    if(strcmp(mensagem,"true") == 0){
+                    recv(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);
+                    printf("%s\n",resposta_servidor);
+                    }else{
+                     recv(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);
+                     printf("%s\n",resposta_servidor);
+                    }
+                    }
+                    
+            }else{
+                    printf("Nao existe nenhuma SALA \n\n\n");
+                }
+            break; 
+        }   
+        
+        default:
+            printf("Input invalido\n");
+            break;
+        }
+
+    }while (menu_option != 3);
+        
+        
+        
+}
 
 
 

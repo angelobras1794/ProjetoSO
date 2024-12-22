@@ -1507,3 +1507,1462 @@
 2 [23:56:31] O user 2 nao consegiu entrar em nenhuma sala, porque nao ha salas disponiveis
 2 [23:56:32] O user 2 esta a tentar entrar numa sala
 2 [23:56:32] O user 2 nao consegiu entrar em nenhuma sala, porque nao ha salas disponiveis
+2 [13:30:17] O user 2 esta a tentar entrar numa sala
+2 [13:30:17] O user 2 nao consegiu entrar em nenhuma sala, porque nao ha salas disponiveis
+1 [13:31:08] O user 1 esta a tentar entrar numa sala
+1 [13:31:08] O user 1 nao consegiu entrar em nenhuma sala, porque nao ha salas disponiveis
+1 [13:31:18] O user 1 esta a tentar sair da ligacao
+2 [13:33:08] O user 2 esta a tentar sair da ligacao
+2 [13:33:47] O user 2 esta a tentar sair da ligacao
+2 [13:34:28] O user 2 esta a tentar sair da ligacao
+2 [13:36:17] O user 2 esta a tentar sair da ligacao
+2 [13:57:38] O user 2 esta a tentar criar a sala com o nome dada
+2 [13:57:38] O user 2 criou a sala com o nome dada
+2 [13:57:45] O user 2 esta a tentar sair da ligacao
+2 [13:59:57] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [13:59:57] O user 2 criou a sala com o nome dadadad
+2 [13:59:59] O user 2 esta a tentar sair da ligacao
+2 [14:01:43] O user 2 esta a tentar criar a sala com o nome dadada
+2 [14:01:43] O user 2 criou a sala com o nome dadada
+2 [14:01:52] O user 2 esta a tentar sair da ligacao
+2 [14:08:26] O user 2 esta a tentar criar a sala com o nome daada
+2 [14:08:26] O user 2 criou a sala com o nome daada
+2 [14:08:31] O user 2 esta a tentar sair da ligacao
+2 [14:08:40] O user 2 esta a tentar sair da ligacao
+2 [14:19:18] O user 2 esta a tentar criar a sala com o nome dadadada
+2 [14:19:18] O user 2 criou a sala com o nome dadadada
+2 [14:23:53] O user 2 esta a tentar criar a sala com o nome dadaa
+2 [14:23:53] O user 2 criou a sala com o nome dadaa
+2 [14:23:54] O user 2 esta a tentar entrar numa sala
+2 [14:23:54] O user com id 2 esta a tentar entrar na sala 1
+2 [14:23:54] O user com id 2 conseguiu entrar na sala 1
+1 [14:24:02] O user 1 esta a tentar entrar numa sala
+1 [14:24:02] O user com id 1 esta a tentar entrar na sala 1
+1 [14:24:02] O user com id 1 conseguiu entrar na sala 1
+1 [14:24:02] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:02] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:06] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:06] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:10] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:10] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:14] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:14] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:18] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:18] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:22] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:22] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:26] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:30] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:30] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:34] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:34] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [14:24:38] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [14:24:38] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:08:03] O user 2 esta a tentar criar a sala com o nome dadada
+2 [20:08:03] O user 2 criou a sala com o nome dadada
+2 [20:10:03] O user 2 esta a tentar ver as estatisticas
+2 [20:11:44] O user 2 esta a tentar ver as estatisticas
+2 [20:13:51] O user 2 esta a tentar ver as estatisticas
+2 [20:15:30] O user 2 esta a tentar ver as estatisticas
+2 [20:16:48] O user 2 esta a tentar ver as estatisticas
+2 [20:18:15] O user 2 esta a tentar entrar numa sala
+2 [20:18:15] O user 2 nao consegiu entrar em nenhuma sala, porque nao ha salas disponiveis
+2 [20:18:18] O user 2 esta a tentar ver as estatisticas
+2 [20:19:00] O user 2 esta a tentar ver as estatisticas
+2 [20:20:02] O user 2 esta a tentar criar a sala com o nome dadada
+2 [20:20:02] O user 2 criou a sala com o nome dadada
+22 [20:20:03] O user 22 esta a tentar entrar numa sala
+2 [20:20:03] O user com id 2 esta a tentar entrar na sala 1
+2 [20:20:03] O user com id 2 conseguiu entrar na sala 1
+2 [20:20:10] O user 2 esta a tentar entrar numa sala
+2 [20:20:11] O user com id 2 esta a tentar entrar na sala 1
+2 [20:20:11] O user com id 2 conseguiu entrar na sala 1
+2 [20:20:11] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:20:11] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:20:15] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:20:15] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:20:23] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:20:45] O user 2 esta a tentar entrar numa sala
+2 [20:21:55] O user 2 esta a tentar criar a sala com o nome dadada
+2 [20:21:55] O user 2 criou a sala com o nome dadada
+22 [20:21:56] O user 22 esta a tentar entrar numa sala
+2 [20:21:57] O user com id 2 esta a tentar entrar na sala 1
+2 [20:21:57] O user com id 2 conseguiu entrar na sala 1
+2 [20:22:04] O user 2 esta a tentar entrar numa sala
+2 [20:22:04] O user com id 2 esta a tentar entrar na sala 1
+2 [20:22:04] O user com id 2 conseguiu entrar na sala 1
+2 [20:22:04] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:04] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:08] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:08] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:12] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:16] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:20] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:20] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:24] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:24] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:28] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:28] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:32] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:32] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:36] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:36] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:40] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:40] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:44] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:44] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:22:48] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:23:05] O user 2 esta a tentar entrar numa sala
+2 [20:23:06] O user 2 esta a tentar ver as estatisticas
+2 [20:28:09] O user 2 esta a tentar criar a sala com o nome dadad
+2 [20:28:09] O user 2 criou a sala com o nome dadad
+2 [20:28:10] O user 2 esta a tentar entrar numa sala
+2 [20:28:10] O user com id 2 esta a tentar entrar na sala 1
+2 [20:28:10] O user com id 2 conseguiu entrar na sala 1
+1 [20:28:16] O user 1 esta a tentar entrar numa sala
+1 [20:28:17] O user com id 1 esta a tentar entrar na sala 1
+1 [20:28:17] O user com id 1 conseguiu entrar na sala 1
+2 [20:28:17] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:17] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:25] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:25] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:29] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:33] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:33] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:37] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:37] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:41] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:41] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:45] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:45] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:49] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:49] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:53] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:53] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:28:57] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:28:57] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:29:01] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:29:01] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:29:05] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:31:25] O user 2 esta a tentar criar a sala com o nome dadadadada
+2 [20:31:25] O user 2 criou a sala com o nome dadadadada
+2 [20:31:25] O user 2 esta a tentar entrar numa sala
+2 [20:31:26] O user com id 2 esta a tentar entrar na sala 1
+2 [20:31:26] O user com id 2 conseguiu entrar na sala 1
+1 [20:31:30] O user 1 esta a tentar entrar numa sala
+1 [20:31:30] O user com id 1 esta a tentar entrar na sala 1
+1 [20:31:30] O user com id 1 conseguiu entrar na sala 1
+1 [20:31:30] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:31:30] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:31:34] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:05] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [20:32:05] O user 2 criou a sala com o nome dadadad
+2 [20:32:05] O user 2 esta a tentar entrar numa sala
+2 [20:32:06] O user com id 2 esta a tentar entrar na sala 1
+2 [20:32:06] O user com id 2 conseguiu entrar na sala 1
+1 [20:32:11] O user 1 esta a tentar entrar numa sala
+1 [20:32:11] O user com id 1 esta a tentar entrar na sala 1
+1 [20:32:11] O user com id 1 conseguiu entrar na sala 1
+1 [20:32:11] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:11] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:15] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:15] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:19] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:19] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:23] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:23] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:27] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:27] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:31] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:35] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:39] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:39] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:43] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:43] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:47] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:47] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:51] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:51] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:32:55] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:55] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:32:59] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:25] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [20:35:25] O user 2 criou a sala com o nome dadadad
+2 [20:35:26] O user 2 esta a tentar entrar numa sala
+2 [20:35:26] O user com id 2 esta a tentar entrar na sala 1
+2 [20:35:26] O user com id 2 conseguiu entrar na sala 1
+1 [20:35:33] O user 1 esta a tentar entrar numa sala
+1 [20:35:33] O user com id 1 esta a tentar entrar na sala 1
+1 [20:35:33] O user com id 1 conseguiu entrar na sala 1
+2 [20:35:33] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:33] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:37] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:37] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:41] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:41] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:45] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:45] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:49] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:49] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:53] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:53] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:35:57] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:35:57] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:36:01] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:36:01] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:36:05] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:36:09] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:36:09] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:39:19] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [20:39:19] O user 2 criou a sala com o nome dadadad
+2 [20:39:19] O user 2 esta a tentar entrar numa sala
+2 [20:39:20] O user com id 2 esta a tentar entrar na sala 1
+2 [20:39:20] O user com id 2 conseguiu entrar na sala 1
+1 [20:39:23] O user 1 esta a tentar entrar numa sala
+1 [20:39:23] O user com id 1 esta a tentar entrar na sala 1
+1 [20:39:23] O user com id 1 conseguiu entrar na sala 1
+2 [20:39:23] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:39:27] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:39:31] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:32] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [20:41:32] O user 2 criou a sala com o nome dadadad
+2 [20:41:32] O user 2 esta a tentar entrar numa sala
+2 [20:41:32] O user com id 2 esta a tentar entrar na sala 1
+2 [20:41:32] O user com id 2 conseguiu entrar na sala 1
+1 [20:41:38] O user 1 esta a tentar entrar numa sala
+1 [20:41:38] O user com id 1 esta a tentar entrar na sala 1
+1 [20:41:38] O user com id 1 conseguiu entrar na sala 1
+1 [20:41:38] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:38] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:42] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:41:42] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:46] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:41:46] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:50] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:41:50] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:41:54] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:54] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:41:58] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:41:58] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:02] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:02] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:06] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:06] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:10] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:10] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:14] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:14] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:18] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:18] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:22] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:22] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:26] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:30] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:30] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:34] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:34] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:38] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:38] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:42] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:42:42] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:42:46] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:44:53] O user 2 esta a tentar criar a sala com o nome da
+2 [20:44:53] O user 2 criou a sala com o nome da
+2 [20:44:54] O user 2 esta a tentar entrar numa sala
+2 [20:44:54] O user com id 2 esta a tentar entrar na sala 1
+2 [20:44:54] O user com id 2 conseguiu entrar na sala 1
+1 [20:45:07] O user 1 esta a tentar entrar numa sala
+1 [20:45:08] O user com id 1 esta a tentar entrar na sala 1
+1 [20:45:08] O user com id 1 conseguiu entrar na sala 1
+2 [20:45:08] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:08] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:12] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:12] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:16] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:16] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:20] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:20] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:24] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:24] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:28] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:28] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:32] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:36] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:36] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:45:40] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:40] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:45:44] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:46:53] O user 2 esta a tentar criar a sala com o nome dadad
+2 [20:46:53] O user 2 criou a sala com o nome dadad
+2 [20:46:53] O user 2 esta a tentar entrar numa sala
+2 [20:46:54] A sala (2) que o o user 11 tentou entrar nao foi encontrada
+22 [20:46:57] O user 22 esta a tentar entrar numa sala
+2 [20:46:57] O user com id 2 esta a tentar entrar na sala 1
+2 [20:46:57] O user com id 2 conseguiu entrar na sala 1
+1 [20:47:02] O user 1 esta a tentar entrar numa sala
+1 [20:47:02] O user com id 1 esta a tentar entrar na sala 1
+1 [20:47:02] O user com id 1 conseguiu entrar na sala 1
+1 [20:47:02] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:02] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:06] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:06] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:10] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:10] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:14] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:14] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:18] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:18] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:22] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:22] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:26] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:26] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:34] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:47:34] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:47:38] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:48:38] O user 2 esta a tentar criar a sala com o nome dadada
+2 [20:48:38] O user 2 criou a sala com o nome dadada
+22 [20:48:38] O user 22 esta a tentar entrar numa sala
+2 [20:48:39] O user com id 2 esta a tentar entrar na sala 1
+2 [20:48:39] O user com id 2 conseguiu entrar na sala 1
+1 [20:48:45] O user 1 esta a tentar entrar numa sala
+1 [20:48:45] O user com id 1 esta a tentar entrar na sala 1
+1 [20:48:45] O user com id 1 conseguiu entrar na sala 1
+1 [20:48:45] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:48:49] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:48:49] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:18] O user 2 esta a tentar criar a sala com o nome dadada
+2 [20:53:18] O user 2 criou a sala com o nome dadada
+22 [20:53:18] O user 22 esta a tentar entrar numa sala
+2 [20:53:18] O user com id 2 esta a tentar entrar na sala 1
+2 [20:53:18] O user com id 2 conseguiu entrar na sala 1
+1 [20:53:21] O user 1 esta a tentar entrar numa sala
+1 [20:53:23] O user com id 1 esta a tentar entrar na sala 1
+1 [20:53:23] O user com id 1 conseguiu entrar na sala 1
+1 [20:53:23] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:23] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:27] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:27] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:31] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:31] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:35] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:35] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:39] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:43] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:43] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:47] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:47] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:51] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:51] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:55] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:55] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:53:59] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:53:59] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:54:03] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:13] O user 2 esta a tentar criar a sala com o nome dada
+2 [20:55:13] O user 2 criou a sala com o nome dada
+2 [20:55:13] O user 2 esta a tentar entrar numa sala
+2 [20:55:14] O user com id 2 esta a tentar entrar na sala 1
+2 [20:55:14] O user com id 2 conseguiu entrar na sala 1
+1 [20:55:19] O user 1 esta a tentar entrar numa sala
+1 [20:55:20] O user com id 1 esta a tentar entrar na sala 1
+1 [20:55:20] O user com id 1 conseguiu entrar na sala 1
+2 [20:55:20] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:20] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:24] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:24] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:28] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:28] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:32] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:32] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:36] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:36] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:40] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:40] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:44] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:44] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:48] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:48] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:52] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:52] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:55:56] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [20:55:56] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:56:00] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:56:00] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:56:08] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:56:08] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [20:56:12] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:56:12] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:56:16] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:56:16] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:56:20] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [20:56:20] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:56:24] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:57:35] O user 2 esta a tentar criar a sala com o nome adadad
+2 [20:57:35] O user 2 criou a sala com o nome adadad
+22 [20:57:36] O user 22 esta a tentar entrar numa sala
+2 [20:57:36] O user com id 2 esta a tentar entrar na sala 1
+2 [20:57:36] O user com id 2 conseguiu entrar na sala 1
+1 [20:57:40] O user 1 esta a tentar entrar numa sala
+1 [20:57:40] O user com id 1 esta a tentar entrar na sala 1
+1 [20:57:40] O user com id 1 conseguiu entrar na sala 1
+1 [20:57:40] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:57:40] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [20:57:44] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [20:57:44] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [20:57:48] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [20:57:48] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [20:57:52] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:57:52] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:57:56] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:57:56] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:00] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:00] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:04] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:04] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:08] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:08] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:12] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:12] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:16] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:16] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:20] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:20] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:24] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [20:58:24] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [20:58:32] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:15] O user 2 esta a tentar criar a sala com o nome 1
+2 [21:04:15] O user 2 criou a sala com o nome 1
+2 [21:04:19] O user 2 esta a tentar entrar numa sala
+2 [21:04:19] O user com id 2 esta a tentar entrar na sala 1
+2 [21:04:19] O user com id 2 conseguiu entrar na sala 1
+1 [21:04:30] O user 1 esta a tentar entrar numa sala
+1 [21:04:31] O user com id 1 esta a tentar entrar na sala 1
+1 [21:04:31] O user com id 1 conseguiu entrar na sala 1
+2 [21:04:31] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:35] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:04:35] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:04:39] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:39] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:43] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:04:43] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:47] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:04:47] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:51] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:04:51] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:04:55] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:04:55] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:36] O user 2 esta a tentar criar a sala com o nome dadada
+2 [21:06:36] O user 2 criou a sala com o nome dadada
+22 [21:06:36] O user 22 esta a tentar entrar numa sala
+2 [21:06:37] O user com id 2 esta a tentar entrar na sala 1
+2 [21:06:37] O user com id 2 conseguiu entrar na sala 1
+1 [21:06:42] O user 1 esta a tentar entrar numa sala
+1 [21:06:42] O user com id 1 esta a tentar entrar na sala 1
+1 [21:06:42] O user com id 1 conseguiu entrar na sala 1
+1 [21:06:42] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:06:42] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:06:42] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:06:42] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:06:42] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:06:42] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:06:42] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:06:42] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:07:40] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:07:40] O user 2 criou a sala com o nome dadad
+2 [21:07:41] O user 2 esta a tentar entrar numa sala
+2 [21:07:42] O user com id 2 esta a tentar entrar na sala 1
+2 [21:07:42] O user com id 2 conseguiu entrar na sala 1
+1 [21:07:48] O user 1 esta a tentar entrar numa sala
+1 [21:07:48] O user com id 1 esta a tentar entrar na sala 1
+1 [21:07:48] O user com id 1 conseguiu entrar na sala 1
+1 [21:07:48] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:07:48] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:07:48] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:07:48] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:07:48] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:07:48] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:07:48] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:07:48] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:07:48] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:33] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:10:33] O user 2 criou a sala com o nome dadad
+2 [21:10:33] O user 2 esta a tentar entrar numa sala
+2 [21:10:34] O user com id 2 esta a tentar entrar na sala 1
+2 [21:10:34] O user com id 2 conseguiu entrar na sala 1
+1 [21:10:40] O user 1 esta a tentar entrar numa sala
+1 [21:10:41] O user com id 1 esta a tentar entrar na sala 1
+1 [21:10:41] O user com id 1 conseguiu entrar na sala 1
+2 [21:10:41] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:10:41] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:10:41] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:15] O user 2 esta a tentar criar a sala com o nome dadada
+2 [21:12:15] O user 2 criou a sala com o nome dadada
+22 [21:12:15] O user 22 esta a tentar entrar numa sala
+2 [21:12:16] O user com id 2 esta a tentar entrar na sala 1
+2 [21:12:16] O user com id 2 conseguiu entrar na sala 1
+1 [21:12:21] O user 1 esta a tentar entrar numa sala
+1 [21:12:21] O user com id 1 esta a tentar entrar na sala 1
+1 [21:12:21] O user com id 1 conseguiu entrar na sala 1
+2 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:12:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:13:20] O user 2 esta a tentar entrar numa sala
+2 [21:13:20] O user 2 esta a tentar ver as estatisticas
+2 [21:15:45] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [21:15:45] O user 2 criou a sala com o nome dadadad
+2 [21:15:46] O user 2 esta a tentar entrar numa sala
+2 [21:15:46] O user com id 2 esta a tentar entrar na sala 1
+2 [21:15:46] O user com id 2 conseguiu entrar na sala 1
+1 [21:15:51] O user 1 esta a tentar entrar numa sala
+1 [21:15:51] O user com id 1 esta a tentar entrar na sala 1
+1 [21:15:51] O user com id 1 conseguiu entrar na sala 1
+1 [21:15:51] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:15:51] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:15:51] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:13] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:17:13] O user 2 criou a sala com o nome dadad
+2 [21:17:14] O user 2 esta a tentar entrar numa sala
+2 [21:17:14] O user com id 2 esta a tentar entrar na sala 1
+2 [21:17:14] O user com id 2 conseguiu entrar na sala 1
+1 [21:17:21] O user 1 esta a tentar entrar numa sala
+1 [21:17:21] O user com id 1 esta a tentar entrar na sala 1
+1 [21:17:21] O user com id 1 conseguiu entrar na sala 1
+1 [21:17:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:17:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:17:21] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:17:21] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:17:21] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:17:21] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:17:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:17:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:20:57] O user 2 esta a tentar criar a sala com o nome dadada
+2 [21:20:57] O user 2 criou a sala com o nome dadada
+22 [21:20:58] O user 22 esta a tentar entrar numa sala
+2 [21:20:58] O user com id 2 esta a tentar entrar na sala 1
+2 [21:20:58] O user com id 2 conseguiu entrar na sala 1
+2 [21:21:49] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:21:49] O user 2 criou a sala com o nome dadad
+2 [21:21:50] O user 2 esta a tentar entrar numa sala
+2 [21:21:50] O user com id 2 esta a tentar entrar na sala 1
+2 [21:21:50] O user com id 2 conseguiu entrar na sala 1
+1 [21:22:05] O user 1 esta a tentar entrar numa sala
+1 [21:22:05] O user com id 1 esta a tentar entrar na sala 1
+1 [21:22:05] O user com id 1 conseguiu entrar na sala 1
+1 [21:22:05] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:22:05] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:22:05] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:23:03] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:23:03] O user 2 criou a sala com o nome dadad
+2 [21:23:03] O user 2 esta a tentar entrar numa sala
+2 [21:23:04] O user com id 2 esta a tentar entrar na sala 1
+2 [21:23:04] O user com id 2 conseguiu entrar na sala 1
+1 [21:23:08] O user 1 esta a tentar entrar numa sala
+1 [21:23:09] O user com id 1 esta a tentar entrar na sala 1
+1 [21:23:09] O user com id 1 conseguiu entrar na sala 1
+2 [21:23:09] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:23:33] O user 2 esta a tentar entrar numa sala
+2 [21:23:33] O user 2 esta a tentar ver as estatisticas
+2 [21:26:08] O user 2 esta a tentar criar a sala com o nome dadadada
+2 [21:26:08] O user 2 criou a sala com o nome dadadada
+2 [21:26:08] O user 2 esta a tentar entrar numa sala
+2 [21:26:09] O user com id 2 esta a tentar entrar na sala 1
+2 [21:26:09] O user com id 2 conseguiu entrar na sala 1
+1 [21:26:13] O user 1 esta a tentar entrar numa sala
+1 [21:26:13] O user com id 1 esta a tentar entrar na sala 1
+1 [21:26:13] O user com id 1 conseguiu entrar na sala 1
+1 [21:26:13] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:26:13] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:13] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:26:30] O user 1 esta a tentar entrar numa sala
+1 [21:26:31] O user 1 esta a tentar ver as estatisticas
+2 [21:40:07] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:40:07] O user 2 criou a sala com o nome dadad
+2 [21:40:07] O user 2 esta a tentar entrar numa sala
+2 [21:40:08] O user com id 2 esta a tentar entrar na sala 1
+2 [21:40:08] O user com id 2 conseguiu entrar na sala 1
+1 [21:40:11] O user 1 esta a tentar entrar numa sala
+1 [21:40:12] O user com id 1 esta a tentar entrar na sala 1
+1 [21:40:12] O user com id 1 conseguiu entrar na sala 1
+1 [21:40:12] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:40:12] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:40:12] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:40:12] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:40:12] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:40:23] O user 1 esta a tentar entrar numa sala
+1 [21:40:24] O user 1 esta a tentar ver as estatisticas
+2 [21:41:26] O user 2 esta a tentar criar a sala com o nome dadad
+2 [21:41:26] O user 2 criou a sala com o nome dadad
+2 [21:41:26] O user 2 esta a tentar entrar numa sala
+2 [21:41:27] O user com id 2 esta a tentar entrar na sala 1
+2 [21:41:27] O user com id 2 conseguiu entrar na sala 1
+1 [21:41:34] O user 1 esta a tentar entrar numa sala
+1 [21:41:34] O user com id 1 esta a tentar entrar na sala 1
+1 [21:41:34] O user com id 1 conseguiu entrar na sala 1
+2 [21:41:34] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:41:34] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:41:35] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:41:35] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:41:36] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:41:36] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:41:45] O user 1 esta a tentar entrar numa sala
+1 [21:41:47] O user 1 esta a tentar ver as estatisticas
+2 [21:46:39] O user 2 esta a tentar criar a sala com o nome dadada
+2 [21:46:39] O user 2 criou a sala com o nome dadada
+22 [21:46:39] O user 22 esta a tentar entrar numa sala
+2 [21:46:39] O user com id 2 esta a tentar entrar na sala 1
+2 [21:46:39] O user com id 2 conseguiu entrar na sala 1
+1 [21:46:43] O user 1 esta a tentar entrar numa sala
+1 [21:46:44] O user com id 1 esta a tentar entrar na sala 1
+1 [21:46:44] O user com id 1 conseguiu entrar na sala 1
+1 [21:46:44] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:46:44] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:46:45] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:46:45] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:46:46] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:46:46] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:46:47] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:46:47] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:46:48] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:46:56] O user 1 esta a tentar entrar numa sala
+1 [21:46:57] O user 1 esta a tentar ver as estatisticas
+1 [21:47:15] O user 1 esta a tentar entrar numa sala
+1 [21:47:16] O user com id 1 esta a tentar entrar na sala 1
+1 [21:47:16] O user com id 1 conseguiu entrar na sala 1
+2 [21:47:19] O user 2 esta a tentar entrar numa sala
+2 [21:47:19] O user com id 2 esta a tentar entrar na sala 1
+2 [21:47:19] O user com id 2 conseguiu entrar na sala 1
+1 [21:47:19] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:20] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:21] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:21] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:22] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:22] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:23] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:23] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:24] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:24] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:25] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:25] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:26] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:26] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:47:27] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:27] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:47:46] O user 2 esta a tentar entrar numa sala
+2 [21:47:46] O user 2 esta a tentar ver as estatisticas
+2 [21:48:17] O user 2 esta a tentar ver as estatisticas
+2 [21:49:54] O user 2 esta a tentar ver as estatisticas
+2 [21:50:22] O user 2 esta a tentar entrar numa sala
+2 [21:50:24] O user com id 2 esta a tentar entrar na sala 1
+2 [21:50:24] O user com id 2 conseguiu entrar na sala 1
+1 [21:50:26] O user 1 esta a tentar entrar numa sala
+1 [21:50:27] O user com id 1 esta a tentar entrar na sala 1
+1 [21:50:27] O user com id 1 conseguiu entrar na sala 1
+2 [21:50:27] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:27] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:28] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:28] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:29] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:29] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:30] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:30] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:31] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:32] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:33] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:33] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:34] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:34] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:35] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:35] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:36] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:36] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:37] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:37] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:50:38] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:38] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:50:45] O user 1 esta a tentar ver as estatisticas
+2 [21:53:46] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [21:53:46] O user 2 criou a sala com o nome dadadad
+2 [21:53:48] O user 2 esta a tentar entrar numa sala
+2 [21:53:48] O user com id 2 esta a tentar entrar na sala 1
+2 [21:53:48] O user com id 2 conseguiu entrar na sala 1
+1 [21:53:53] O user 1 esta a tentar entrar numa sala
+1 [21:53:54] O user com id 1 esta a tentar entrar na sala 1
+1 [21:53:54] O user com id 1 conseguiu entrar na sala 1
+2 [21:53:54] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:53:54] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:53:55] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:53:55] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:53:56] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:53:57] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:53:57] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:53:58] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:53:58] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:53:59] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+1 [21:53:59] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:54:00] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:54:00] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:54:01] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:54:01] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:54:02] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:54:02] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:30] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [21:57:30] O user 2 criou a sala com o nome dadadad
+2 [21:57:42] O user 2 esta a tentar entrar numa sala
+2 [21:57:43] O user com id 2 esta a tentar entrar na sala 1
+2 [21:57:43] O user com id 2 conseguiu entrar na sala 1
+1 [21:57:48] O user 1 esta a tentar entrar numa sala
+1 [21:57:49] O user com id 1 esta a tentar entrar na sala 1
+1 [21:57:49] O user com id 1 conseguiu entrar na sala 1
+1 [21:57:49] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:49] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:50] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:50] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:51] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:51] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:52] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:52] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:53] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:53] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:54] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:54] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:55] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:55] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:56] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:56] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:57] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:57] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:58] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:58] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:57:59] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:57:59] Erro: O valor 9 ja existe na linha ou coluna ou quadrado
+
+2 [21:58:00] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:00] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:58:01] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:01] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:02] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:58:03] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:03] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:04] Erro: O valor 4 ja existe na linha ou coluna ou quadrado
+
+2 [21:58:04] Erro: O valor 8 ja existe na linha ou coluna ou quadrado
+
+2 [21:58:05] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:05] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:58:06] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:06] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+1 [21:58:07] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:02] O user 2 esta a tentar criar a sala com o nome dadadad
+2 [21:59:02] O user 2 criou a sala com o nome dadadad
+2 [21:59:03] O user 2 esta a tentar entrar numa sala
+2 [21:59:03] O user com id 2 esta a tentar entrar na sala 1
+2 [21:59:03] O user com id 2 conseguiu entrar na sala 1
+1 [21:59:13] O user 1 esta a tentar entrar numa sala
+1 [21:59:14] O user com id 1 esta a tentar entrar na sala 1
+1 [21:59:14] O user com id 1 conseguiu entrar na sala 1
+1 [21:59:14] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:14] Erro: O valor 2 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:15] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:15] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:17] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:17] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:18] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:18] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:19] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:19] Erro: O valor 3 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:20] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:20] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:21] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:21] Erro: O valor 7 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:22] Erro: O valor 5 ja existe na linha ou coluna ou quadrado
+
+1 [21:59:22] Erro: O valor 6 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:23] Erro: O valor 1 ja existe na linha ou coluna ou quadrado
+
+2 [21:59:49] O user 2 esta a tentar ver as estatisticas

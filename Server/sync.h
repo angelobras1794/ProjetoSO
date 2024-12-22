@@ -2,15 +2,11 @@
 #include <stdio.h>
 #include <semaphore.h>
 
-
-
-
-
-
 struct mutex_threads{
     pthread_mutex_t  criar_sala;   //TRINCO PARA CRIAR SALA
     pthread_mutex_t  entrar_sala;  //TRINCO PARA ENTRAR NA SALA
     pthread_mutex_t  jogar_sala;
+    pthread_mutex_t sair_sala;
     
     
 };
@@ -22,11 +18,11 @@ struct simple_barrier_t {
     int threshold;
 } ;
 
-struct Semaphore{
-    int value, wakeups ;
-    pthread_mutex_t  mutex ;
-    pthread_cond_t  cond ;
- };
+// struct Semaphore{
+//     int value, wakeups ;
+//     pthread_mutex_t  mutex ;
+//     pthread_cond_t  cond ;
+//  };
 
 
 
@@ -34,6 +30,10 @@ struct Semaphore{
 //FUNCOES DA BARREIRA
 void simple_barrier_init(struct simple_barrier_t *barrier, int threshold);
 void simple_barrier_wait(struct simple_barrier_t *barrier);
+
+void mutexes_init(struct mutex_threads *mutexes);
+
+
 
 
 //FUNCOES DO SEMAFORO
