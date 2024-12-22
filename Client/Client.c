@@ -26,7 +26,7 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala){
     int * tabuleiro[9][9]; // Tabuleiro como array bidimensional
     int linhaRandom, colunaRandom;
     int sala=opcaoSala - 1;
-    srand(time(NULL));   // Inicializar a semente aleatória
+       // Inicializar a semente aleatória
     
     while (1) {
         // Receber o tabuleiro do servidor
@@ -175,21 +175,25 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                     for(int z=0;z<totalSalas;z++){
                         printf("%s\n",salas[z]);
                     }
+                    printf("0-voltar\n");
                     printf("Escolha uma sala: \n");
                     scanf("%d",&opcaoSala);
+                    if (opcaoSala != 0)
+                    {
                     printf("Debug: opcaoSala = %d, Cliente_id = %d\n", opcaoSala,Cliente_id);
                     sprintf(mensagem,"entrar_em_sala:%d:%d",opcaoSala,Cliente_id);
                     
-                    send(client_socket,&mensagem,sizeof(mensagem),0); //+1 ?
+                    send(client_socket,&mensagem,sizeof(mensagem),0); // mesangem entrar sala
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                     printf("%s\n",mensagem); //resposta do servidor (sucesso na criacao ou nao)
                     memset(mensagem, 0, sizeof(mensagem));
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                      printf("%s\n",mensagem);
                     if(strcmp(mensagem,"true") == 0){
-                    printf("ola tudo bem amigo\n");
                     jogoAutonomo(client_socket,Cliente_id,opcaoSala);
                     }
+                    }
+                    
                 }else{
                     printf("Nao existe nenhuma SALA \n\n\n");
                 }
@@ -223,6 +227,8 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
 
 
 int main(int argc,int *argv[]){
+
+    srand(time(NULL));
     struct confCliente *configuracao = malloc(sizeof(struct confCliente)); //alocar espaco para a struct
     ler_ficheiroConf(configuracao,argv[1]);
 

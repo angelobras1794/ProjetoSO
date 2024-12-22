@@ -8,11 +8,32 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include "funcoesServer.h"
+
 #include "cJSON.h"
+#include <pthread.h>
+
+
 
 #define N_CLIENTES 100
 #define MAX_SALAS  3
-#define MAX_JOGADORES 1
+
+
+pthread_mutex_t mutex;
+
+
+
+
+struct thread_args {
+    int server_socket;
+    int client_socket;
+    struct jogoSoduku *salas;
+    char (*salasDisponiveis)[100];
+    int *totalSalas;
+    int *totalClientes;
+    struct mutex_threads *mutexes;
+};
+
+
 
 
 bool percorrer_arr(struct jogoSoduku *salas,int sala_id){
@@ -52,29 +73,55 @@ void verifica_ID(int client_socket,struct jogoSoduku *salas){
 
 }
 
-void handle_client(int server_socket,int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas){
+void * handle_client(void *args){
+
+    
+    struct thread_args *threadArgs = (struct thread_args *)args;
+    
+    int server_socket = threadArgs->server_socket;
+    int client_socket = threadArgs->client_socket;
+    struct jogoSoduku *salas = threadArgs->salas;
+    char (*salasDisponiveis)[100] = threadArgs->salasDisponiveis;
+    int *totalSalas = threadArgs->totalSalas;
+    int *totalClientes = threadArgs->totalClientes;
+    struct mutex_threads *mutexes = threadArgs->mutexes;
+    
+
     char mensagem[100];
         
-    while(true){
-      recv(client_socket,mensagem,sizeof(mensagem),0);
-      processarMensagem(mensagem,client_socket,salas,salasDisponiveis,totalSalas);
+    while (recv(client_socket, mensagem, sizeof(mensagem), 0) > 0) {
+        
+        processarMensagem(mensagem, client_socket,salas,salasDisponiveis,totalSalas,mutexes,totalClientes);   
     }
 }
 
 int main(int argc,int *argv[]){
      struct confServer *configuracao = malloc(sizeof(struct confServer)); //alocar espaco para a struct
      ler_ficheiroConf(configuracao,argv[1]);
+     pthread_mutex_init(&mutex, NULL);
+     
 
     srand(time(NULL)); //usado para a geracao de numeros aleatorios
     struct jogoSoduku* salas = (struct jogoSoduku*)malloc(MAX_SALAS * sizeof(struct jogoSoduku));
     for(int i=0;i<MAX_SALAS;i++){
          salas[i].idSala=0;
          salas[i].nJogadores=0;
+         salas[i].nJogadoresEspera=0;
          salas[i].idTabuleiro=0;
-
+        
     }
+    
     int totalSalas = 0;
+    int clientesConectados = 0;
     char salasDisponiveis[MAX_SALAS][100];
+    struct mutex_threads *mutexes = malloc(sizeof(struct mutex_threads));
+    pthread_mutex_init(&mutexes->criar_sala, NULL);
+    pthread_mutex_init(&mutexes->entrar_sala, NULL);
+    pthread_mutex_init(&mutexes->jogar_sala, NULL);
+
+    
+
+
     //criar o server socket
     int server_socket;
     server_socket = socket(AF_INET,SOCK_STREAM,0); //socket(dominio,tipo,protocolo) , AF_INET -> IPV4 , sock_stream -> TCP
@@ -101,14 +148,37 @@ int main(int argc,int *argv[]){
 
     int client_socket;
     
-       
+    while (1){
     client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size); //servidor aceita clientes
 
 
-    handle_client(server_socket,client_socket,salas,salasDisponiveis,&totalSalas);   //funcao para tratar do cliente 
-     
-    
-                                                                           
+
+    struct thread_args *args = malloc(sizeof(struct thread_args));
+
+
+    args->server_socket = server_socket;
+    args->client_socket = client_socket;
+    args->salas = salas;
+    args->salasDisponiveis = salasDisponiveis;
+    args->totalSalas = &totalSalas;
+    args->totalClientes = &clientesConectados;
+    args->mutexes = mutexes;
+
+    pthread_t t_id;
+    pthread_mutex_lock(&mutex);
+    *(args->totalClientes)+=1;
+    pthread_mutex_unlock(&mutex);
+    printf("Clientes conectados: %d\n", *(args->totalClientes));
+    if (pthread_create(&t_id, NULL, handle_client, (void *)args) != 0) {
+        perror("pthread_create failed");
+        free(args);
+        close(client_socket);
+        exit(EXIT_FAILURE);
+    }
+   
+
+}
+                                                                         
     return 0;
 }
 
