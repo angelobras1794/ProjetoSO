@@ -18,7 +18,7 @@
 #define MAX_SALAS  3
 
 
-pthread_mutex_t mutex;
+pthread_mutex_t mutexClientesConectados;
 
 
 
@@ -29,7 +29,7 @@ struct thread_args {
     struct jogoSoduku *salas;
     char (*salasDisponiveis)[100];
     int *totalSalas;
-    // int *totalClientes;
+    int prioridade;
     struct estatisticaServer *estatistica;
     struct mutex_threads *mutexes;
 };
@@ -75,7 +75,7 @@ void * handle_client(void *args){
     struct jogoSoduku *salas = threadArgs->salas;
     char (*salasDisponiveis)[100] = threadArgs->salasDisponiveis;
     int *totalSalas = threadArgs->totalSalas;
-    // int *totalClientes = threadArgs->totalClientes;
+    int *prioridade = threadArgs->prioridade;
     struct estatisticaServer *estatistica = threadArgs->estatistica;
     struct mutex_threads *mutexes = threadArgs->mutexes;
     
@@ -84,14 +84,14 @@ void * handle_client(void *args){
         
     while (recv(client_socket, mensagem, sizeof(mensagem), 0) > 0) {
         
-        processarMensagem(mensagem, client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica);   
+        processarMensagem(mensagem, client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica,&prioridade);   
     }
 }
 
 int main(int argc,int *argv[]){
      struct confServer *configuracao = malloc(sizeof(struct confServer)); //alocar espaco para a struct
      ler_ficheiroConf(configuracao,argv[1]);
-     pthread_mutex_init(&mutex, NULL);
+     pthread_mutex_init(&mutexClientesConectados, NULL);
      
 
     srand(time(NULL)); //usado para a geracao de numeros aleatorios
@@ -139,8 +139,9 @@ int main(int argc,int *argv[]){
     
     while (1){
     client_socket = accept(server_socket,(struct sockaddr*)&client_address, &client_address_size); //servidor aceita clientes
-
+    printf("Cliente conectado\n");
     struct thread_args *args = malloc(sizeof(struct thread_args));
+    printf("Cliente conectado\n");
 
 
     args->server_socket = server_socket;
@@ -148,15 +149,14 @@ int main(int argc,int *argv[]){
     args->salas = salas;
     args->salasDisponiveis = salasDisponiveis;
     args->totalSalas = &totalSalas;
-    // args->totalClientes = &clientesConectados;
+    args->prioridade = 10;
     args->estatistica = estatistica;
     args->mutexes = mutexes;
 
     pthread_t t_id;
-    pthread_mutex_lock(&mutex);
-    // *(args->totalClientes)+=1;
+    pthread_mutex_lock(&args->mutexes->sair_sala);
     args->estatistica->clientesConectados+=1;
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_unlock(&args->mutexes->sair_sala);
     printf("Clientes conectados: %d\n", (args->estatistica->clientesConectados));
     if (pthread_create(&t_id, NULL, handle_client, (void *)args) != 0) {
         perror("pthread_create failed");

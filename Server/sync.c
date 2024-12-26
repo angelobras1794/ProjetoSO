@@ -56,74 +56,56 @@ void mutexes_init(struct mutex_threads *mutexes) {
 }
 
 
+void createPriorityQueue(struct PriorityQueue * fila) {
+    fila = (struct PriorityQueue*)malloc(sizeof(struct PriorityQueue));
+    fila->head = NULL;
+    pthread_mutex_init(&fila->lock, NULL);
+}
 
+//FILA UTILIZANDO LISTAS LIGADAS
 
-//FUNCOES DE Semaforo
+void enqueue(struct PriorityQueue* pq, int clientId, int *priority, int socket, int line, int column, int value) {
+    pthread_mutex_lock(&pq->lock);
 
-// void sem_wait(struct  Semaphore * semaphore )
-// {
- 
-//  pthread_mutex_lock(&semaphore->mutex);
-//  semaphore->value--;
+    struct ClientRequest* newRequest = (struct ClientRequest*)malloc(sizeof(struct ClientRequest));
+    newRequest->clientId = clientId;
+    newRequest->priority = priority;
+    printf("Prioridade on equer %d\n",*priority);
+    printf("Prioridade on equer %d\n",*newRequest->priority);
+    newRequest->socket = socket;
+    newRequest->line = line;
+    newRequest->column = column;
+    newRequest->value = value;
+    newRequest->next = NULL;
 
-// if (semaphore->value < 0) {
-//     do {
-//     pthread_cond_wait(&semaphore->cond,&semaphore->mutex );
-//     } while (semaphore->wakeups < 1);
-//     semaphore->wakeups--;
-// }
-//  pthread_mutex_unlock(&semaphore->mutex);
-//  }
+    if (!pq->head || pq->head->priority < *priority) {
+        newRequest->next = pq->head;
+        pq->head = newRequest;
+    } else {
+        struct ClientRequest* current = pq->head;
+        while (current->next && current->next->priority >= *priority) {
+            current = current->next;
+        }
+        newRequest->next = current->next;
+        current->next = newRequest;
+    }
 
+    pthread_mutex_unlock(&pq->lock);
+}
 
-//  void sem_signal(struct Semaphore *semaphore) {
-//     Lock the semaphore mutex
-//     if (pthread_mutex_lock(&semaphore->mutex) != 0) {
-//         perror("Failed to lock mutex");
-//         return;
-//     }
+struct ClientRequest* dequeue(struct PriorityQueue* pq) {
+    pthread_mutex_lock(&pq->lock);
 
-//     Increment the semaphore value
-//     semaphore->value++;
+    if (!pq->head) {
+        pthread_mutex_unlock(&pq->lock);
+        printf("erro FILA VAZIA\n");
+        return NULL;
+    }
 
-//     Wake up waiting threads if needed
-//     if (semaphore->value <= 0) {
-//         semaphore->wakeups++;
-//         if (pthread_cond_signal(&semaphore->cond) != 0) {
-//             perror("Failed to signal condition");
-//         }
-//     }
+    struct ClientRequest* topRequest = pq->head;
+    pq->head = pq->head->next;
 
-//     Unlock the semaphore mutex
-//     pthread_mutex_unlock(&semaphore->mutex);
-       
-    
-// }
+    pthread_mutex_unlock(&pq->lock);
+    return topRequest;
+}
 
-//  struct Semaphore* make_semaphore(int value) {
-//     Allocate memory for the semaphore
-//     struct Semaphore *semaphore = malloc(sizeof(struct Semaphore));
-//     if (semaphore == NULL) {
-//         perror("Failed to allocate memory for semaphore");
-//         exit(EXIT_FAILURE);
-//     }
-
-//     Allocate memory for the mutex and condition variable
-//     semaphore->mutex = malloc(sizeof(pthread_mutex_t));
-//     semaphore->cond = malloc(sizeof(pthread_cond_t));
-//     if (semaphore->mutex == NULL || semaphore->cond == NULL) {
-//         perror("Failed to allocate memory for mutex or condition variable");
-//         free(semaphore);
-//         exit(EXIT_FAILURE);
-//     }
-
-//     Initialize the semaphore properties
-//     semaphore->value = value;
-//     semaphore->wakeups = 0;
-
-//     Initialize the mutex and condition variable
-//     pthread_mutex_init(&semaphore->mutex, NULL);
-//     pthread_cond_init(&semaphore->cond, NULL);
-
-//     return semaphore;
-// }

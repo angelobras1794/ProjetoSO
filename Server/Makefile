@@ -1,7 +1,7 @@
 
 # Target: mainServer and its dependencies
-mainServer: mainServer.o funcoesServer.o cJSON.o sync.o estatistica.o
-	gcc -o mainServer mainServer.o funcoesServer.o cJSON.o sync.o estatistica.o -pthread 
+mainServer: mainServer.o funcoesServer.o cJSON.o sync.o estatistica.o syncBarbeiro.o
+	gcc -o mainServer mainServer.o funcoesServer.o cJSON.o sync.o estatistica.o syncBarbeiro.o -pthread 
 
 # Compile the main server source file
 mainServer.o: mainServer.c
@@ -17,6 +17,10 @@ sync.o: sync.c sync.h
 
 estatistica.o: estatistica.c estatistica.h
 	gcc -g -c estatistica.c -pthread	
+
+
+syncBarbeiro.o: syncBarbeiro.c syncBarbeiro.h
+	gcc -g -c syncBarbeiro.c -pthread	
 
 # Compile the cJSON library
 cJSON.o: cJSON.c cJSON.h

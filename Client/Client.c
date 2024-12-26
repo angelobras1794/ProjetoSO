@@ -110,7 +110,6 @@ void mostra_grid(int *tabuleiro[9][9]) {
 void mostraMenuPrincipal(int client_socket,int Cliente_id){
     int menu_option;
     char mensagem[100];
-
     printf("Bem vindo ao Servido Sodoku!!!\n");
     printf("------------------------------------------\n\n");
     do{
@@ -118,22 +117,25 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
     printf("1-Jogar\n");
     printf("2-Estatisticas\n");
     printf("3-Sair\n");
-    printf("Porfavor selecione uma opcao: ");
-    scanf("%d",&menu_option);
+    menu_option= get_valid_integer("Por favor, selecione uma opcao:\n");
 
     switch(menu_option){
 
     case 1:
         printf("esta na opcao de jogar ");
         mostraMenuJogar(client_socket,Cliente_id);
+        clear_input_buffer();
         break;
     case 2:
         mostraMenuEstatisticas(client_socket,Cliente_id);
+        clear_input_buffer();
         break;
     case 3:
         printf("A sair do jogo");
         sprintf(mensagem,"sair:SAIR:%d",Cliente_id);
-        send(client_socket,&mensagem,sizeof(mensagem),0);    
+        send(client_socket,&mensagem,sizeof(mensagem),0);
+        clear_input_buffer();
+        break;    
     default:
         printf("input invalido");
         break;
@@ -156,8 +158,7 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
         printf("1-Entrar numa sala\n");
         printf("2-Criar sala\n");
         printf("3-Voltar\n");
-        printf("Por favor, selecione uma opcao: \n");
-        scanf("%d", &menu_option);
+        menu_option= get_valid_integer("Por favor, selecione uma opcao:");
 
         switch (menu_option) {
             case 1: { // Entrar em uma sala
@@ -176,8 +177,7 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                         printf("%s\n",salas[z]);
                     }
                     printf("0-voltar\n");
-                    printf("Escolha uma sala: \n");
-                    scanf("%d",&opcaoSala);
+                    opcaoSala =  get_valid_integer("Por favor, selecione uma sala:\n");
                     if (opcaoSala != 0)
                     {
                     printf("Debug: opcaoSala = %d, Cliente_id = %d\n", opcaoSala,Cliente_id);
@@ -194,25 +194,34 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                     }
                     }
                     
+                    
                 }else{
                     printf("Nao existe nenhuma SALA \n\n\n");
                 }
-                
+              
                 break;
             }
             case 2: { // Criar uma sala
                 char nomeSala[20];
+                int modoJogo;
                 char resposta_servidor[110];
                 printf("Esta na opcao de criar uma sala\n");
                 printf("Insira o nome da sala: \n");
                 scanf("%s", nomeSala);
                 printf(" \nnome da SALA: %s \n\n",nomeSala); //
                 // Envia ação e nome da sala ao servidor
+                printf("Escolha o modo de jogo\n");
+                printf("1-MODO DE JOGO 1 (SYCN NORMAL)\n");
+                printf("2-MODO DE JOGO 2 (SYCN BARBEARIA)\n");
+                do{
+                modoJogo = get_valid_integer("Por favor, escolha um modo:");
+                }while(modoJogo != 1 && modoJogo != 2);
                 memset(mensagem, 0, sizeof(mensagem));
-                sprintf(mensagem,"criar_sala:%s:%d",nomeSala,Cliente_id);
+                sprintf(mensagem,"criar_sala:%s,%d:%d",nomeSala,modoJogo,Cliente_id);
                 send(client_socket,&mensagem,strlen(mensagem), 0);
                 recv(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
                 printf("%s\n",resposta_servidor);
+                
                 break;
             }
             default:
@@ -234,8 +243,7 @@ void mostraMenuEstatisticas(int client_socket,int Cliente_id){
         printf("1-Estatistica do Servidor\n");
         printf("2-Estatistica da Sala\n");
         printf("3-Voltar\n");
-        printf("Por favor, selecione uma opcao: \n");
-        scanf("%d", &menu_option);
+        menu_option =get_valid_integer("Por favor, selecione uma opcao:");
 
         switch (menu_option)
         {
@@ -247,6 +255,7 @@ void mostraMenuEstatisticas(int client_socket,int Cliente_id){
             send(client_socket,&mensagem,strlen(mensagem), 0);
             recv(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
             printf("%s\n\n",resposta_servidor);
+            
             break;
         case 2:  {
             int opcaoSala=0;
@@ -283,11 +292,13 @@ void mostraMenuEstatisticas(int client_socket,int Cliente_id){
             }else{
                     printf("Nao existe nenhuma SALA \n\n\n");
                 }
+           
             break; 
         }   
         
         default:
             printf("Input invalido\n");
+            
             break;
         }
 
@@ -371,6 +382,36 @@ void ler_ficheiroConf(struct confCliente * cliente,char * nomeFicheiro){
 
     fclose(ficheiro);
     
+}
+
+
+int get_valid_integer(char mensagem[]) {
+    char input[100];
+    int value;
+    char *endptr;
+
+    while (1) {
+        printf("%s\n",mensagem);
+        if (scanf("%s", input) == 1) {
+            // Remove newline character if present
+            input[strcspn(input, "\n")] = '\0';
+
+            // Convert input to integer
+            value = strtol(input, &endptr, 10);
+
+            // Check if the input is a valid integer
+            if (endptr != input && *endptr == '\0') {
+                return value;
+            } else {
+                printf("Entrada inválida. Por favor, insira um número inteiro.\n");
+            }
+        }
+    }
+}
+
+void clear_input_buffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 
 

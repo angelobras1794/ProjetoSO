@@ -9,6 +9,9 @@ void estatisticaServerInit(struct estatisticaServer * estatistica){
     estatistica->clientesConectados = 0;
     estatistica->tabuleirosResolvidos = 0;
     estatistica->tabuleirosEmResolucao = 0;
+    printf("Estatisticas Inicializadas\n");
+    pthread_mutex_init(&estatistica->trincoEstatistica, NULL);
+    printf("Mutex Inicializado\n");
 
 }
 

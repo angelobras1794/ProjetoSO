@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <semaphore.h>
 
+#define MAX_JOGADORES 5
+
 struct mutex_threads{
     pthread_mutex_t  criar_sala;   //TRINCO PARA CRIAR SALA
     pthread_mutex_t  entrar_sala;  //TRINCO PARA ENTRAR NA SALA
@@ -18,11 +20,18 @@ struct simple_barrier_t {
     int threshold;
 } ;
 
-// struct Semaphore{
-//     int value, wakeups ;
-//     pthread_mutex_t  mutex ;
-//     pthread_cond_t  cond ;
-//  };
+struct ClientRequest {
+    int clientId;
+    int * priority;
+    int socket;
+    int line, column, value; // Play details
+    struct ClientRequest* next;
+};
+
+struct PriorityQueue {
+    struct ClientRequest* head;
+    pthread_mutex_t lock;
+};
 
 
 
@@ -33,14 +42,15 @@ void simple_barrier_wait(struct simple_barrier_t *barrier);
 
 void mutexes_init(struct mutex_threads *mutexes);
 
+//FUNCOES DA PRIORIDADE
+
+void createPriorityQueue(struct PriorityQueue* fila);
+void enqueue(struct PriorityQueue* pq, int clientId, int *priority, int socket, int line, int column, int value); 
+struct ClientRequest* dequeue(struct PriorityQueue* pq);  
 
 
 
-//FUNCOES DO SEMAFORO
 
-// struct Semaphore * make_semaphore ( int value );
-// void sem_wait(struct Semaphore * semaphore);
-// void sem_signal(struct Semaphore * semaphore);
 
 
 

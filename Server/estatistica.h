@@ -10,6 +10,7 @@ struct estatisticaServer{
     int clientesConectados;
     int tabuleirosResolvidos;
     int tabuleirosEmResolucao;
+    pthread_mutex_t trincoEstatistica;
 
 };
 
