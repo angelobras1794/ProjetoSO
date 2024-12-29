@@ -58,6 +58,12 @@ struct confServer
 
 };
 
+struct argsFila{
+    struct estatisticaServer *estatistica;
+    struct jogoSoduku *game;
+    struct prodCons *prodCons;
+};
+
 
 
 
@@ -66,18 +72,19 @@ struct confServer
 void mostra_grid(int *tabuleiro[9][9]);
 void text_to_grid(char *text, struct jogoSoduku * Jogo);
 bool verifica_jogada(struct jogoSoduku * Jogo, int linha, int coluna, int valor);
-void escrever_logs(int id_user,char *mensagem);
+// void escrever_logs(int id_user,char *mensagem);
 void remove_newline(char *str);
 int is_empty_or_whitespace(const char *str);
 void ler_ficheiroConf(struct confServer * server,char * nomeFicheiro);
 
-void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas,struct mutex_threads *mutexes,struct estatisticaServer *estatistica,int * prioridade);
+void processarMensagem(char mensagem[200], int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas,struct mutex_threads *mutexes,struct estatisticaServer *estatistica,int * prioridade,struct prodCons *prodCons);
 void entraClienteSala(int client_socket,int i,struct jogoSoduku* salas,int id);
 void gerarSalasDisponiveis(int *totalSalas, struct jogoSoduku* salas, char salasDisponiveis[][100]);
 int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index);
 int verificaFimJogo(struct jogoSoduku* game);
 bool is_playable(int * board[9][9]);
-void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_socket,int id_cliente,struct estatisticaServer *estatistica,int * prioridade);
+void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_socket,int id_cliente,struct estatisticaServer *estatistica,struct prodCons *prodCons);
+void jogoFIFO(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_socket,int id_cliente,struct estatisticaServer *estatistica);
 void atualizaPontos(struct jogoSoduku *game,int id_cliente,int client_socket);
 void resetaSala(struct jogoSoduku *game);
 void init(struct jogoSoduku *game);
@@ -90,6 +97,11 @@ void geraEstatisticasSala(struct jogoSoduku *game,int maxJogadores);
 void escreveEstatisticaSala(struct jogoSoduku *game,int clientSocket);
 void formatTime(double timeInSeconds, char *buffer, size_t bufferSize);
 
-void jogadorTentaJogar(struct jogoSoduku* sala, int clientId, int socket, int linha, int coluna, int valor,struct estatisticaSala *estatistica,int prioridade);
+int jogadorTentaJogar(struct jogoSoduku* sala, int clientId, int socket, int linha, int coluna, int valor,struct estatisticaSala *estatistica,struct prodCons *prodCons);
 void  barbeiroAtende(void* arg);
 void inicializarBarbeiros(struct jogoSoduku* sala);
+const char* bool_to_string(bool value);
+
+
+void AtendedorFila(struct argsFila* args);
+void * filaAtende(void *args);

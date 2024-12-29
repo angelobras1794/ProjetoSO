@@ -46,33 +46,48 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala){
         sprintf(mensagem, "jogo:%d,%d,%d,%d:%d",sala,linhaRandom, colunaRandom, valorEscolhido, id_cliente);
         send(client_socket, mensagem, sizeof(mensagem), 0);
         printf("Jogada enviada: linha=%d, coluna=%d, valor=%d\n", linhaRandom, colunaRandom, valorEscolhido);
+        sprintf(mensagem,"JOGADOR com socket %d enviou a jogada (%d,%d) com valor %d na sala %d",client_socket,linhaRandom,colunaRandom,valorEscolhido,sala);
+        escrever_logs(mensagem,id_cliente);
 
-        usleep(500000); // fica 2 segundos parado
+        // usleep(500000); // fica 2 segundos parado
 
         recv(client_socket,mensagem,sizeof(mensagem),0);
         printf("%s\n",mensagem);
-
-        usleep(500000); // fica 2 segundos parado
-        // system("clear"); //limpar a consola
+        if(strcmp(mensagem,"desistencia")==0){
+            printf("JOGADOR DESISTIU DA JOGADA\n");
+            sprintf(mensagem,"JOGADOR com socket %d DESISTIU DA JOGADA na sala",client_socket,sala);
+            escrever_logs(mensagem,id_cliente);
+       
+        }else{
+        printf("%s\n",mensagem);
+        memset(mensagem, 0, sizeof(mensagem));
 
         //verificar se o jogo acabou
-        recv(client_socket,mensagem,sizeof(mensagem),0);
+        recv(client_socket,mensagem,sizeof(mensagem),0); //continuar ou acabar
+        printf("%s\n",mensagem);
         if(strcmp(mensagem,"end")==0){
             printf("acabei o jogo lol\n");
             break;
         }
+
+        }
+        memset(mensagem, 0, sizeof(mensagem));  
     }
     //o jogo acabou
     recv(client_socket,mensagem,sizeof(mensagem),0);
     printf("%s\n",mensagem);
+    sprintf(mensagem,"JOGADOR com socket %d acabou o jogo na sala %d",client_socket,sala-1);
+    escrever_logs(mensagem,id_cliente);
 
 }
 
 
 
 
-void escrever_logs(int id_user,char *mensagem){
-    FILE *ficheiro = fopen("logs.txt", "a");
+void escrever_logs(char *mensagem,int id_cliente){
+    char nomeFicheiro[100];
+    sprintf(nomeFicheiro,"logsCliente%d.txt",id_cliente);
+    FILE *ficheiro = fopen(nomeFicheiro, "a");
     if (ficheiro == NULL) {
         perror("Error opening file");
         return;
@@ -82,7 +97,7 @@ void escrever_logs(int id_user,char *mensagem){
     struct tm *t = localtime(&now);
     char time_str[100];
     strftime(time_str, sizeof(time_str) - 1, "%H:%M:%S", t);
-    fprintf(ficheiro, "%d [%s] %s\n",id_user,time_str, mensagem);
+    fprintf(ficheiro, " [%s] %s\n",time_str, mensagem);
     fclose(ficheiro);
      
 
@@ -135,6 +150,8 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
         sprintf(mensagem,"sair:SAIR:%d",Cliente_id);
         send(client_socket,&mensagem,sizeof(mensagem),0);
         clear_input_buffer();
+        sprintf(mensagem,"JOGADOR com socket %d saiu do server ",client_socket);
+        escrever_logs(mensagem,Cliente_id);
         break;    
     default:
         printf("input invalido");
@@ -166,9 +183,12 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                 int totalSalas;
                 memset(mensagem, 0, sizeof(mensagem));
                 sprintf(mensagem,"salasCriadas:ola:%d",Cliente_id);
-                send(client_socket,&mensagem,strlen(mensagem), 0); //faz isto
+                send(client_socket,&mensagem,sizeof(mensagem), 0); //faz isto
                 memset(mensagem, 0, sizeof(mensagem));
-                int verifica = recv(client_socket,&totalSalas,sizeof(totalSalas),0);             //nao faz print 
+                sprintf(mensagem,"JOGADOR com socket %d enviou um pedido para ver quais salas estao disponiveis ",client_socket);
+                escrever_logs(mensagem,Cliente_id);
+                int verifica = recv(client_socket,&totalSalas,sizeof(totalSalas),0);        
+                printf("Total Salas: %d\n",totalSalas);
                 if(totalSalas != 0 ){
                     char salas[totalSalas][100]; //fazer a parte das salas para o cliente
                     recv(client_socket,&salas,sizeof(salas),0);
@@ -184,12 +204,16 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                     sprintf(mensagem,"entrar_em_sala:%d:%d",opcaoSala,Cliente_id);
                     
                     send(client_socket,&mensagem,sizeof(mensagem),0); // mesangem entrar sala
+                     sprintf(mensagem,"JOGADOR com socket %d enviou um pedido para entrar na sala %d",client_socket,opcaoSala-1);
+                     escrever_logs(mensagem,Cliente_id);
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                     printf("%s\n",mensagem); //resposta do servidor (sucesso na criacao ou nao)
                     memset(mensagem, 0, sizeof(mensagem));
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                      printf("%s\n",mensagem);
                     if(strcmp(mensagem,"true") == 0){
+                     sprintf(mensagem,"JOGADOR com socket %d entrou na sala e comecou o jogo na sala %d ",client_socket,opcaoSala-1);
+                     escrever_logs(mensagem,Cliente_id);    
                     jogoAutonomo(client_socket,Cliente_id,opcaoSala);
                     }
                     }
@@ -219,6 +243,8 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                 memset(mensagem, 0, sizeof(mensagem));
                 sprintf(mensagem,"criar_sala:%s,%d:%d",nomeSala,modoJogo,Cliente_id);
                 send(client_socket,&mensagem,strlen(mensagem), 0);
+                sprintf(mensagem,"JOGADOR com socket %d enviou um pedido para criar uma sala com nome %s e com modo de jogo %d ",client_socket,nomeSala,modoJogo);
+                escrever_logs(mensagem,Cliente_id);   
                 recv(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
                 printf("%s\n",resposta_servidor);
                 
@@ -253,6 +279,8 @@ void mostraMenuEstatisticas(int client_socket,int Cliente_id){
             memset(mensagem, 0, sizeof(mensagem));
             sprintf(mensagem,"estatisticas:servidor:%d",Cliente_id);
             send(client_socket,&mensagem,strlen(mensagem), 0);
+            sprintf(mensagem,"JOGADOR com socket %d enviou um pedido para ver as estatisticas do servidor  ",client_socket);
+            escrever_logs(mensagem,Cliente_id); 
             recv(client_socket,&resposta_servidor,sizeof(resposta_servidor), 0);
             printf("%s\n\n",resposta_servidor);
             
@@ -279,6 +307,8 @@ void mostraMenuEstatisticas(int client_socket,int Cliente_id){
                     {
                     sprintf(mensagem,"estatisticas:%d:%d",opcaoSala,Cliente_id);
                     send(client_socket,&mensagem,sizeof(mensagem),0); // mesangem entrar sala
+                    sprintf(mensagem,"JOGADOR com socket %d enviou um pedido para ver as estatisticas da sala %d  ",client_socket,opcaoSala-1);
+                    escrever_logs(mensagem,Cliente_id); 
                     recv(client_socket,&mensagem,sizeof(mensagem),0);
                     if(strcmp(mensagem,"true") == 0){
                     recv(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);

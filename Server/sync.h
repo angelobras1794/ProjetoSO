@@ -1,8 +1,9 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <semaphore.h>
+#include <stdbool.h>
 
-#define MAX_JOGADORES 5
+
 
 struct mutex_threads{
     pthread_mutex_t  criar_sala;   //TRINCO PARA CRIAR SALA
@@ -22,7 +23,6 @@ struct simple_barrier_t {
 
 struct ClientRequest {
     int clientId;
-    int * priority;
     int socket;
     int line, column, value; // Play details
     struct ClientRequest* next;
@@ -31,6 +31,8 @@ struct ClientRequest {
 struct PriorityQueue {
     struct ClientRequest* head;
     pthread_mutex_t lock;
+    bool iniciarJogo;
+    bool atendedorOn;
 };
 
 
@@ -45,8 +47,10 @@ void mutexes_init(struct mutex_threads *mutexes);
 //FUNCOES DA PRIORIDADE
 
 void createPriorityQueue(struct PriorityQueue* fila);
-void enqueue(struct PriorityQueue* pq, int clientId, int *priority, int socket, int line, int column, int value); 
+void enqueue(struct PriorityQueue* pq, int clientId, int socket, int line, int column, int value); 
 struct ClientRequest* dequeue(struct PriorityQueue* pq);  
+int countNodes(struct ClientRequest* head);
+void clean_list(struct ClientRequest** head) ;
 
 
 

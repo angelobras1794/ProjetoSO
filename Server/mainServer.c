@@ -32,6 +32,7 @@ struct thread_args {
     int prioridade;
     struct estatisticaServer *estatistica;
     struct mutex_threads *mutexes;
+    struct prodCons *prodCons;
 };
 
 
@@ -78,13 +79,14 @@ void * handle_client(void *args){
     int *prioridade = threadArgs->prioridade;
     struct estatisticaServer *estatistica = threadArgs->estatistica;
     struct mutex_threads *mutexes = threadArgs->mutexes;
+    struct prodCons *prodCons = threadArgs->prodCons;
     
 
-    char mensagem[100];
+    char mensagem[200];
         
     while (recv(client_socket, mensagem, sizeof(mensagem), 0) > 0) {
         
-        processarMensagem(mensagem, client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica,&prioridade);   
+        processarMensagem(mensagem,client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica,&prioridade,prodCons);   
     }
 }
 
@@ -104,9 +106,9 @@ int main(int argc,int *argv[]){
     mutexes_init(mutexes);
     struct estatisticaServer *estatistica = malloc(sizeof(struct estatisticaServer));
     estatisticaServerInit(estatistica);
-    printf("Clientes conectados: %d\n", (estatistica->clientesConectados));
-    printf("Tabuleiros resolvidos: %d\n", (estatistica->tabuleirosResolvidos));
-    printf("Tabuleiros em resolucao: %d\n", (estatistica->tabuleirosEmResolucao));
+    struct prodCons *prodCons = malloc(sizeof(struct prodCons));
+    prodConsInit(prodCons,7);
+    criaConsumidor(prodCons);
     
     
 
@@ -152,8 +154,12 @@ int main(int argc,int *argv[]){
     args->prioridade = 10;
     args->estatistica = estatistica;
     args->mutexes = mutexes;
+    args->prodCons = prodCons;
 
     pthread_t t_id;
+    char mensagem[100];
+    sprintf(mensagem,"O cliente com socket %d conectou-se ao servidor",client_socket);
+    prodProduz(args->prodCons,mensagem);
     pthread_mutex_lock(&args->mutexes->sair_sala);
     args->estatistica->clientesConectados+=1;
     pthread_mutex_unlock(&args->mutexes->sair_sala);

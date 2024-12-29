@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include "sync.h"
 
+#define MAX_JOGADORES 2
+
+
 
 
 void simple_barrier_init(struct simple_barrier_t *barrier, int threshold) {
@@ -59,35 +62,39 @@ void mutexes_init(struct mutex_threads *mutexes) {
 void createPriorityQueue(struct PriorityQueue * fila) {
     fila = (struct PriorityQueue*)malloc(sizeof(struct PriorityQueue));
     fila->head = NULL;
+    fila->iniciarJogo=false;
+    fila->atendedorOn=false;
     pthread_mutex_init(&fila->lock, NULL);
 }
 
 //FILA UTILIZANDO LISTAS LIGADAS
 
-void enqueue(struct PriorityQueue* pq, int clientId, int *priority, int socket, int line, int column, int value) {
+void enqueue(struct PriorityQueue* pq, int clientId, int socket, int line, int column, int value) {
     pthread_mutex_lock(&pq->lock);
 
     struct ClientRequest* newRequest = (struct ClientRequest*)malloc(sizeof(struct ClientRequest));
     newRequest->clientId = clientId;
-    newRequest->priority = priority;
-    printf("Prioridade on equer %d\n",*priority);
-    printf("Prioridade on equer %d\n",*newRequest->priority);
+    // newRequest->priority = priority;
     newRequest->socket = socket;
     newRequest->line = line;
     newRequest->column = column;
     newRequest->value = value;
     newRequest->next = NULL;
 
-    if (!pq->head || pq->head->priority < *priority) {
+    if (!pq->head) {
         newRequest->next = pq->head;
         pq->head = newRequest;
     } else {
         struct ClientRequest* current = pq->head;
-        while (current->next && current->next->priority >= *priority) {
+        while (current->next) {
             current = current->next;
+
         }
         newRequest->next = current->next;
         current->next = newRequest;
+    }
+    if(countNodes(pq->head) == MAX_JOGADORES){
+        pq->iniciarJogo=true;
     }
 
     pthread_mutex_unlock(&pq->lock);
@@ -107,5 +114,28 @@ struct ClientRequest* dequeue(struct PriorityQueue* pq) {
 
     pthread_mutex_unlock(&pq->lock);
     return topRequest;
+}
+
+int countNodes(struct ClientRequest* head) {
+    int count = 0;
+    struct ClientRequest* current = head; // Start at the head of the list
+    while (current != NULL) {
+        count++;                 // Increment the count for each node
+        current = current->next; // Move to the next node
+    }
+    return count;
+}
+
+void clean_list(struct ClientRequest** head) {
+    struct ClientRequest* current = *head;  // Start from the head of the list
+    struct ClientRequest* next_node;
+
+    while (current != NULL) {
+        next_node = current->next; // Save the pointer to the next node
+        free(current);             // Free the current node
+        current = next_node;       // Move to the next node
+    }
+
+    *head = NULL; // Set the head pointer to NULL to indicate the list is empty
 }
 

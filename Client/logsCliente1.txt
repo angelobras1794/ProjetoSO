@@ -1,0 +1,531 @@
+[19:27:39] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:27:40] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:27:40] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:29:09] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:29:12] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:29:12] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:31:07] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:31:07] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:31:07] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:33:46] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:33:47] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:33:47] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:36:53] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:36:54] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:36:54] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:38:07] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:38:08] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:38:08] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:38:58] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:38:58] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:38:58] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:40:13] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:40:13] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:40:13] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:42:12] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:42:12] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:42:12] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:43:54] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:43:55] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:43:55] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:44:25] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:44:25] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:44:25] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:52:11] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:52:12] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:52:12] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+[19:56:07] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+[19:56:08] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+[19:56:11] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+ [20:52:03] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [20:52:03] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+ [20:52:03] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+ [20:54:52] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [20:56:34] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [20:58:32] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:03:29] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:04:14] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:10:36] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:13:59] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:15:58] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:18:41] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:19:51] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:21:18] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:24:28] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:25:22] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:28:19] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:32:35] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:32:36] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+ [21:32:36] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,0) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,6) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,6) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (1,2) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (0,6) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,5) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (1,8) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,2) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,4) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,5) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,0) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,0) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (0,6) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,0) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,3) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,3) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,8) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (0,6) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,5) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,8) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,4) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,4) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,4) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,4) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,8) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,8) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,7) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,8) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (1,2) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (0,6) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,4) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,0) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,5) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,0) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,5) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,8) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,8) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (0,6) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,4) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,2) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,8) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,4) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (6,3) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,8) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,5) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,3) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,0) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,0) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (7,0) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,5) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (8,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (3,3) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (5,6) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 2 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 6 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (4,7) com valor 9 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 5 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 4 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 7 na sala 0
+ [21:32:36] JOGADOR com socket 3 enviou a jogada (2,1) com valor 3 na sala 0
+ [21:32:36] JOGADOR com socket 3 acabou o jogo na sala -1
+ [21:33:01] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:33:01] JOGADOR com socket 3 enviou um pedido para entrar na sala 1
+ [21:33:01] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 1 
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (2,4) com valor 4 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (8,3) com valor 1 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (5,8) com valor 9 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (5,0) com valor 4 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (5,6) com valor 9 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (5,1) com valor 7 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (6,4) com valor 7 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (7,8) com valor 2 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (5,0) com valor 2 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (3,1) com valor 6 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (7,7) com valor 2 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (7,7) com valor 1 na sala 1
+ [21:33:01] JOGADOR com socket 3 enviou a jogada (5,0) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,8) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,5) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,2) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (0,6) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,0) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,2) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,2) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,3) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,5) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,1) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,4) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,8) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,5) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,5) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,2) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,0) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,0) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (0,6) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,4) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,4) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,3) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,8) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,3) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,8) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,4) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,3) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,4) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,2) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,2) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,3) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,5) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,5) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,5) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,4) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,3) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,5) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,2) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,5) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,2) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (3,8) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,5) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (4,7) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,5) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,2) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (8,8) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,0) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (6,5) com valor 7 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (7,0) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 3 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 8 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 9 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,1) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (1,8) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 1 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (5,0) com valor 6 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 2 na sala 1
+ [21:33:02] JOGADOR com socket 3 enviou a jogada (2,6) com valor 5 na sala 1
+ [21:33:02] JOGADOR com socket 3 acabou o jogo na sala 0
+ [21:35:48] JOGADOR com socket 3 enviou um pedido para ver quais salas estao disponiveis 
+ [21:35:49] JOGADOR com socket 3 enviou um pedido para entrar na sala 0
+ [21:35:49] JOGADOR com socket 3 entrou na sala e comecou o jogo na sala 0 
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,4) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,3) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,5) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,0) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,4) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,8) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,8) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,2) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,3) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,0) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,7) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,6) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,5) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,3) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,1) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,3) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,3) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,6) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,8) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,2) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,0) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,5) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (0,6) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,4) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,1) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,1) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,4) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,2) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,3) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,1) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,3) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,3) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,5) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,1) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,5) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,1) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,5) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,2) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,0) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,1) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,4) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,6) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,0) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,2) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,0) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,4) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,3) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,0) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,8) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,2) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,1) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,2) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,6) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,4) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,5) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,4) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,8) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,3) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,2) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,4) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,8) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,8) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,4) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,4) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,1) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,8) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (1,8) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,1) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 9 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,1) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,1) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,1) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (6,3) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,1) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,1) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,4) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,0) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,2) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (7,8) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (4,3) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (3,5) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (8,8) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 3 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 8 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 7 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (2,6) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 1 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 6 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 5 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 2 na sala 0
+ [21:35:49] JOGADOR com socket 3 enviou a jogada (5,5) com valor 4 na sala 0
+ [21:35:49] JOGADOR com socket 3 acabou o jogo na sala -1
+ [21:36:07] JOGADOR com socket 3 saiu do server 
