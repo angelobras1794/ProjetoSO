@@ -28,8 +28,25 @@ struct ClientRequest {
     struct ClientRequest* next;
 };
 
-struct PriorityQueue {
+
+
+struct Queue {
     struct ClientRequest* head;
+    pthread_mutex_t lock;
+    bool iniciarJogo;
+    bool atendedorOn;
+};
+
+struct ClientRequestPriority {
+    int clientId;
+    int socket;
+    int line, column, value; // Play details
+    struct ClientRequestPriority* next;
+    int priority;
+};
+
+struct PriorityQueue {
+    struct ClientRequestPriority* head;
     pthread_mutex_t lock;
     bool iniciarJogo;
     bool atendedorOn;
@@ -46,9 +63,16 @@ void mutexes_init(struct mutex_threads *mutexes);
 
 //FUNCOES DA PRIORIDADE
 
+void createQueue(struct Queue* fila);
+void enqueue(struct Queue* pq, int clientId, int socket, int line, int column, int value); 
+struct ClientRequest* dequeue(struct Queue* pq);
+
+
 void createPriorityQueue(struct PriorityQueue* fila);
-void enqueue(struct PriorityQueue* pq, int clientId, int socket, int line, int column, int value); 
-struct ClientRequest* dequeue(struct PriorityQueue* pq);  
+void enqueuePriority(struct PriorityQueue* pq, int clientId, int socket, int line, int column, int value,int prioridade); 
+struct ClientRequestPriority* dequeuePriority(struct PriorityQueue* pq);
+int countNodesPriority(struct ClientRequestPriority* head);
+
 int countNodes(struct ClientRequest* head);
 void clean_list(struct ClientRequest** head) ;
 

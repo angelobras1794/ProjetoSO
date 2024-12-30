@@ -16,12 +16,13 @@ struct confCliente
 {
    char ip_server[INET_ADDRSTRLEN];  
    int porta; 
-   int id;   
+   int id; 
+   int prioridade;  
 
 };
 
 
-void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala){
+void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala,int prioridade){
     char mensagem[100];
     int * tabuleiro[9][9]; // Tabuleiro como array bidimensional
     int linhaRandom, colunaRandom;
@@ -43,7 +44,7 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala){
         int valorEscolhido = (rand() % 9) + 1; // Exemplo: sempre jogar 1
 
         // Enviar a jogada formatada
-        sprintf(mensagem, "jogo:%d,%d,%d,%d:%d",sala,linhaRandom, colunaRandom, valorEscolhido, id_cliente);
+        sprintf(mensagem, "jogo:%d,%d,%d,%d,%d:%d",sala,linhaRandom, colunaRandom, valorEscolhido,prioridade,id_cliente);
         send(client_socket, mensagem, sizeof(mensagem), 0);
         printf("Jogada enviada: linha=%d, coluna=%d, valor=%d\n", linhaRandom, colunaRandom, valorEscolhido);
         sprintf(mensagem,"JOGADOR com socket %d enviou a jogada (%d,%d) com valor %d na sala %d",client_socket,linhaRandom,colunaRandom,valorEscolhido,sala);
@@ -122,7 +123,7 @@ void mostra_grid(int *tabuleiro[9][9]) {
 }
 
 
-void mostraMenuPrincipal(int client_socket,int Cliente_id){
+void mostraMenuPrincipal(int client_socket,int Cliente_id,int prioridade){
     int menu_option;
     char mensagem[100];
     printf("Bem vindo ao Servido Sodoku!!!\n");
@@ -138,7 +139,7 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
 
     case 1:
         printf("esta na opcao de jogar ");
-        mostraMenuJogar(client_socket,Cliente_id);
+        mostraMenuJogar(client_socket,Cliente_id,prioridade);
         clear_input_buffer();
         break;
     case 2:
@@ -163,7 +164,7 @@ void mostraMenuPrincipal(int client_socket,int Cliente_id){
 
 }
 
-void mostraMenuJogar(int client_socket,int Cliente_id) {
+void mostraMenuJogar(int client_socket,int Cliente_id,int prioridade) {
     int menu_option;
     char mensagem[100];
     int entraJogo;
@@ -214,7 +215,7 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                     if(strcmp(mensagem,"true") == 0){
                      sprintf(mensagem,"JOGADOR com socket %d entrou na sala e comecou o jogo na sala %d ",client_socket,opcaoSala-1);
                      escrever_logs(mensagem,Cliente_id);    
-                    jogoAutonomo(client_socket,Cliente_id,opcaoSala);
+                    jogoAutonomo(client_socket,Cliente_id,opcaoSala,prioridade);
                     }
                     }
                     
@@ -237,9 +238,10 @@ void mostraMenuJogar(int client_socket,int Cliente_id) {
                 printf("Escolha o modo de jogo\n");
                 printf("1-MODO DE JOGO 1 (SYCN NORMAL)\n");
                 printf("2-MODO DE JOGO 2 (SYCN BARBEARIA)\n");
+                printf("3-MODO DE JOGO 3 (SYCN PRIORIDADE)\n");
                 do{
                 modoJogo = get_valid_integer("Por favor, escolha um modo:");
-                }while(modoJogo != 1 && modoJogo != 2);
+                }while(modoJogo != 1 && modoJogo != 2 && modoJogo != 3);
                 memset(mensagem, 0, sizeof(mensagem));
                 sprintf(mensagem,"criar_sala:%s,%d:%d",nomeSala,modoJogo,Cliente_id);
                 send(client_socket,&mensagem,strlen(mensagem), 0);
@@ -348,6 +350,7 @@ int main(int argc,int *argv[]){
 
     int Cliente_id = configuracao->id;
     printf("id_cliente: %d\n",Cliente_id);
+    int prioridade = configuracao->prioridade;
     
     int network_socket;
     
@@ -368,7 +371,7 @@ int main(int argc,int *argv[]){
     
    }else{
         // geraId(Cliente_id,network_socket);
-        mostraMenuPrincipal(network_socket,Cliente_id);
+        mostraMenuPrincipal(network_socket,Cliente_id,prioridade);
    }
    close(network_socket);
     
@@ -408,6 +411,12 @@ void ler_ficheiroConf(struct confCliente * cliente,char * nomeFicheiro){
             cliente->id = atoi(linha + 3);
             printf("%d\n",cliente->id);
         }
+        else if (strncmp(linha, "PRIORIDADE:", 11) == 0) {
+            // Converter a porta de string para inteiro
+            cliente->prioridade = atoi(linha + 11);
+            printf("%d\n",cliente->prioridade);
+        }
+        
     }
 
     fclose(ficheiro);

@@ -10,7 +10,7 @@
 #include "estatistica.h"
 #include "syncBarbeiro.h"
 
-#define MAX_Jogadores 2
+#define MAX_Jogadores 3
 #define MAX_SALAS  3
 
 
@@ -43,7 +43,8 @@ struct jogoSoduku
     pthread_mutex_t trinco;
     time_t tempoInicio;
     time_t tempoFim;
-    struct PriorityQueue fila;
+    struct Queue fila;
+    struct PriorityQueue filaPrioridade;
     int modoJogo;
     struct barberShop barberShop;
 
@@ -77,7 +78,7 @@ void remove_newline(char *str);
 int is_empty_or_whitespace(const char *str);
 void ler_ficheiroConf(struct confServer * server,char * nomeFicheiro);
 
-void processarMensagem(char mensagem[200], int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas,struct mutex_threads *mutexes,struct estatisticaServer *estatistica,int * prioridade,struct prodCons *prodCons);
+void processarMensagem(char mensagem[200], int client_socket,struct jogoSoduku *salas,char salasDisponiveis[][100],int *totalSalas,struct mutex_threads *mutexes,struct estatisticaServer *estatistica,struct prodCons *prodCons);
 void entraClienteSala(int client_socket,int i,struct jogoSoduku* salas,int id);
 void gerarSalasDisponiveis(int *totalSalas, struct jogoSoduku* salas, char salasDisponiveis[][100]);
 int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index);
@@ -105,3 +106,6 @@ const char* bool_to_string(bool value);
 
 void AtendedorFila(struct argsFila* args);
 void * filaAtende(void *args);
+
+void AtendedorFilaPrio(struct argsFila* args);
+void * filaAtendePrio(void *args);

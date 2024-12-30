@@ -29,7 +29,6 @@ struct thread_args {
     struct jogoSoduku *salas;
     char (*salasDisponiveis)[100];
     int *totalSalas;
-    int prioridade;
     struct estatisticaServer *estatistica;
     struct mutex_threads *mutexes;
     struct prodCons *prodCons;
@@ -76,7 +75,6 @@ void * handle_client(void *args){
     struct jogoSoduku *salas = threadArgs->salas;
     char (*salasDisponiveis)[100] = threadArgs->salasDisponiveis;
     int *totalSalas = threadArgs->totalSalas;
-    int *prioridade = threadArgs->prioridade;
     struct estatisticaServer *estatistica = threadArgs->estatistica;
     struct mutex_threads *mutexes = threadArgs->mutexes;
     struct prodCons *prodCons = threadArgs->prodCons;
@@ -86,7 +84,7 @@ void * handle_client(void *args){
         
     while (recv(client_socket, mensagem, sizeof(mensagem), 0) > 0) {
         
-        processarMensagem(mensagem,client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica,&prioridade,prodCons);   
+        processarMensagem(mensagem,client_socket,salas,salasDisponiveis,totalSalas,mutexes,estatistica,prodCons);   
     }
 }
 
@@ -151,7 +149,6 @@ int main(int argc,int *argv[]){
     args->salas = salas;
     args->salasDisponiveis = salasDisponiveis;
     args->totalSalas = &totalSalas;
-    args->prioridade = 10;
     args->estatistica = estatistica;
     args->mutexes = mutexes;
     args->prodCons = prodCons;

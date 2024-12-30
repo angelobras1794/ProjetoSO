@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "sync.h"
 
-#define MAX_JOGADORES 2
+#define MAX_JOGADORES 3
 
 
 
@@ -59,8 +59,8 @@ void mutexes_init(struct mutex_threads *mutexes) {
 }
 
 
-void createPriorityQueue(struct PriorityQueue * fila) {
-    fila = (struct PriorityQueue*)malloc(sizeof(struct PriorityQueue));
+void createQueue(struct Queue * fila) {
+    fila = (struct Queue*)malloc(sizeof(struct Queue));
     fila->head = NULL;
     fila->iniciarJogo=false;
     fila->atendedorOn=false;
@@ -69,12 +69,12 @@ void createPriorityQueue(struct PriorityQueue * fila) {
 
 //FILA UTILIZANDO LISTAS LIGADAS
 
-void enqueue(struct PriorityQueue* pq, int clientId, int socket, int line, int column, int value) {
+void enqueue(struct Queue* pq, int clientId, int socket, int line, int column, int value) {
     pthread_mutex_lock(&pq->lock);
 
     struct ClientRequest* newRequest = (struct ClientRequest*)malloc(sizeof(struct ClientRequest));
     newRequest->clientId = clientId;
-    // newRequest->priority = priority;
+    // newRequest-> = ;
     newRequest->socket = socket;
     newRequest->line = line;
     newRequest->column = column;
@@ -100,7 +100,7 @@ void enqueue(struct PriorityQueue* pq, int clientId, int socket, int line, int c
     pthread_mutex_unlock(&pq->lock);
 }
 
-struct ClientRequest* dequeue(struct PriorityQueue* pq) {
+struct ClientRequest* dequeue(struct Queue* pq) {
     pthread_mutex_lock(&pq->lock);
 
     if (!pq->head) {
@@ -139,3 +139,71 @@ void clean_list(struct ClientRequest** head) {
     *head = NULL; // Set the head pointer to NULL to indicate the list is empty
 }
 
+
+
+//FILAS PRIORIDADE
+
+void createPriorityQueue(struct PriorityQueue * fila) {
+    fila = (struct PriorityQueue*)malloc(sizeof(struct PriorityQueue));
+    fila->head = NULL;
+    fila->iniciarJogo=false;
+    fila->atendedorOn=false;
+    pthread_mutex_init(&fila->lock, NULL);
+}
+
+void enqueuePriority(struct PriorityQueue* pq, int clientId, int socket, int line, int column, int value,int prioridade) {
+    pthread_mutex_lock(&pq->lock);
+
+    struct ClientRequestPriority* newRequest = (struct ClientRequestPriority*)malloc(sizeof(struct ClientRequestPriority));
+    newRequest->clientId = clientId;
+    newRequest->priority = prioridade;
+    newRequest->socket = socket;
+    newRequest->line = line;
+    newRequest->column = column;
+    newRequest->value = value;
+    newRequest->next = NULL;
+
+    if (!pq->head || pq->head->priority < prioridade) {
+        newRequest->next = pq->head;
+        pq->head = newRequest;
+    } else {
+        struct ClientRequestPriority* current = pq->head;
+        while (current->next && current->next->priority >= prioridade) {
+            current = current->next;
+
+        }
+        newRequest->next = current->next;
+        current->next = newRequest;
+    }
+    if(countNodesPriority(pq->head) == MAX_JOGADORES){
+        pq->iniciarJogo=true;
+    }
+
+    pthread_mutex_unlock(&pq->lock);
+}
+
+struct ClientRequestPriority* dequeuePriority(struct PriorityQueue* pq) {
+    pthread_mutex_lock(&pq->lock);
+
+    if (!pq->head) {
+        pthread_mutex_unlock(&pq->lock);
+        printf("erro FILA VAZIA\n");
+        return NULL;
+    }
+
+    struct ClientRequestPriority* topRequest = pq->head;
+    pq->head = pq->head->next;
+
+    pthread_mutex_unlock(&pq->lock);
+    return topRequest;
+}
+
+int countNodesPriority(struct ClientRequestPriority* head) {
+    int count = 0;
+    struct ClientRequestPriority* current = head; // Start at the head of the list
+    while (current != NULL) {
+        count++;                 // Increment the count for each node
+        current = current->next; // Move to the next node
+    }
+    return count;
+}

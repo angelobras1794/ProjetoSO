@@ -18,8 +18,8 @@ void barberShop_init(struct barberShop *barberShop,int maxClientes) {
 void prodConsInit(struct prodCons * prodCons,int tamBuffer){
     pthread_mutex_init(&prodCons->trinco,NULL);
     sem_init(&prodCons->itens,0,0);
-    sem_init(&prodCons->spaces,0,tamBuffer);
-    prodCons->buffer = create_fixed_string_array(tamBuffer);
+    sem_init(&prodCons->spaces,0,tamBuffer);  //conta o numero de espacos disponiveis no buufer
+    prodCons->buffer = create_fixed_string_array(tamBuffer); //cria o buffer
     prodCons->indexProd = 0;
     prodCons->indexCons = 0;
 
