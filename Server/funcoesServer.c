@@ -142,7 +142,9 @@ void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_so
             Jogo->nJogadores--;
             sprintf(escreveLogs,"O cliente %d com socket %d terminou o jogo na sala %d",id_cliente,client_socket,Jogo->idSala);
              prodProduz(prodCons,escreveLogs);
+            mostra_grid(Jogo->tabuleiroJogavel);
             if(Jogo->nJogadores == 0){
+                imprimePontucao(Jogo);
                 Jogo->tempoFim = time(NULL);
                 pthread_mutex_lock(&estatistica->trincoEstatistica);
                 geraEstatisticasSala(Jogo,MAX_JOGADORES);
@@ -400,7 +402,7 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
 
         token = strtok(NULL, delimitador); // Última parte
         if (token != NULL) prioridade = atoi(token);
-        printf("Valor: %d\n", prioridade);
+        printf("Prio: %d\n", prioridade);
         
         sprintf(escreveLog, "O user %d com socket %d enviou a jogada (%d,%d) para a sala %d",id_cliente,client_socket,linha,coluna,sala+1);
         prodProduz(prodCons,escreveLog);
@@ -671,7 +673,7 @@ int verificaFimJogo(struct jogoSoduku* game){
 
 void atualizaPontos(struct jogoSoduku *game,int id_cliente,int client_socket){
     for(int i =0;i<MAX_JOGADORES;i++){
-        if(game->jogadores[i].id == id_cliente){
+        if(game->jogadores[i].client_socket == client_socket){
             game->jogadores[i].pontos+=10;
         }
     }
@@ -931,4 +933,10 @@ void * filaAtendePrio(void *args){
         pthread_mutex_unlock(&sala->trinco);
     }
 
-}   
+}
+
+void imprimePontucao(struct jogoSoduku * game){
+    for(int i =0;i<MAX_JOGADORES;i++){
+        printf("O jogador com socket %d teve %d pontos \n",game->jogadores[i].client_socket,game->jogadores[i].pontos);
+    }
+}

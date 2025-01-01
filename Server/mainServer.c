@@ -96,7 +96,7 @@ int main(int argc,int *argv[]){
 
     srand(time(NULL)); //usado para a geracao de numeros aleatorios
     struct jogoSoduku* salas = (struct jogoSoduku*)malloc(MAX_SALAS * sizeof(struct jogoSoduku));
-    void salasInit(salas);
+    salasInit(salas);
     int totalSalas = 0;
     int clientesConectados = 0;
     char salasDisponiveis[MAX_SALAS][100];

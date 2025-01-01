@@ -109,3 +109,5 @@ void * filaAtende(void *args);
 
 void AtendedorFilaPrio(struct argsFila* args);
 void * filaAtendePrio(void *args);
+
+void imprimePontucao(struct jogoSoduku * game);
