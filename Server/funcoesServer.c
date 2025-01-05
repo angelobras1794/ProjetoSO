@@ -832,8 +832,8 @@ void  barbeiroAtende(void* arg) {
         sem_wait(&sala->barberShop.clientes);
         sem_post(&sala->barberShop.barbeiro);
         // printf("Barbeiro atendendo cliente.\n");
-        sem_wait(&sala->barberShop.barbeiroCompleto);
-        sem_post(&sala->barberShop.clienteCompleto);
+        sem_post(&sala->barberShop.barbeiroCompleto);
+        sem_wait(&sala->barberShop.clienteCompleto);
     }
     printf("Barbeiro terminou o trabalho.\n");
     for (size_t i = 0; i < MAX_JOGADORES; i++)
@@ -869,8 +869,8 @@ int jogadorTentaJogar(struct jogoSoduku* sala, int clientId, int socket, int lin
         printf("Jogador %d acabou de jogar.\n", clientId);
         //  usleep(100000);
         // Libera o barbeiro
-        sem_post(&sala->barberShop.barbeiroCompleto);
-        sem_wait(&sala->barberShop.clienteCompleto);
+        sem_wait(&sala->barberShop.barbeiroCompleto);
+        sem_post(&sala->barberShop.clienteCompleto);
         printf("Jogador %d terminou de jogar.\n", clientId);
         pthread_mutex_lock(&sala->barberShop.trinco);
         sala->barberShop.nClientes--;
