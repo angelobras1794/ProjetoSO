@@ -20,7 +20,9 @@ struct estatisticaSala{
     int pontuacaoMinima;
     double maiorTempo;
     double menorTempo;
+    double tempoMedio;
     int desistencias;
+    int respostasErradas;
     pthread_mutex_t trincoEstatistica;
 };
 

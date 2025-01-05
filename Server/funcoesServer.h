@@ -10,7 +10,7 @@
 #include "estatistica.h"
 #include "syncBarbeiro.h"
 
-#define MAX_Jogadores 3
+#define MAX_Jogadores 6
 #define MAX_SALAS  3
 
 

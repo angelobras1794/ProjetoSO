@@ -29,7 +29,6 @@ struct ClientRequest {
 };
 
 
-
 struct Queue {
     struct ClientRequest* head;
     pthread_mutex_t lock;

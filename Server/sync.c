@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "sync.h"
 
-#define MAX_JOGADORES 3
+#define MAX_JOGADORES 6
 
 
 
@@ -23,19 +23,14 @@ void simple_barrier_init(struct simple_barrier_t *barrier, int threshold) {
     
 }
 
-void simple_barrier_wait(struct simple_barrier_t *barrier) {
-    printf("contador %d\n",barrier->count);
-    printf("threshold %d\n",barrier->threshold);    
+void simple_barrier_wait(struct simple_barrier_t *barrier) {   
     pthread_mutex_lock(&barrier->mutex);
         barrier->count++;
-        printf("contador %d\n",barrier->count);
     pthread_mutex_unlock(&barrier->mutex);
     if (barrier->count == barrier->threshold) {
         sem_post(&barrier->barreira);
-    }   
-    printf("Preso\n"); 
+    }    
     sem_wait(&barrier->barreira);
-    printf("Soltou\n");
     sem_post(&barrier->barreira);
 }
 
@@ -74,7 +69,6 @@ void enqueue(struct Queue* pq, int clientId, int socket, int line, int column, i
 
     struct ClientRequest* newRequest = (struct ClientRequest*)malloc(sizeof(struct ClientRequest));
     newRequest->clientId = clientId;
-    // newRequest-> = ;
     newRequest->socket = socket;
     newRequest->line = line;
     newRequest->column = column;

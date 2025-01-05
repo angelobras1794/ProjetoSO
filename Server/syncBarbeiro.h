@@ -25,7 +25,6 @@ struct prodCons{
    int indexProd;
    int indexCons;
    
-    
 };
 
 struct FixedStringArray {

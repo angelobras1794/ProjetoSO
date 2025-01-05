@@ -17,7 +17,7 @@
 #define TAM 6
 #define N_CLIENTES 100
 #define MAX_SALAS  3
-#define MAX_JOGADORES 3
+#define MAX_JOGADORES 6
 
 void remove_newline(char *str) {
     size_t len = strlen(str);
@@ -123,6 +123,7 @@ void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_so
                 strcpy(mensagem,"Jogada válida, mas a solucao nao 'e a correta. Revertendo...\n");
                 send(client_socket,&mensagem,sizeof(mensagem),0); 
                 Jogo->tabuleiroJogavel[linha][coluna] = 0; // Reverte a jogada
+                Jogo->estatistica.respostasErradas++;
             }      
     }
     else{
@@ -131,6 +132,7 @@ void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_so
              sprintf(escreveLogs, "Erro:O cliente %d com socket %d tentou o valor %d na casa (%d , %d) mas ele ja existe na linha ou coluna ou quadrado na sala %d",id_cliente,client_socket,valor,linha+1,coluna+1,Jogo->idSala);
             prodProduz(prodCons,escreveLogs);
             send(client_socket,&mensagem,sizeof(mensagem),0);  
+            Jogo->estatistica.respostasErradas++;
     }
 
     if(verificaFimJogo(Jogo)==0){
@@ -165,6 +167,7 @@ void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_so
             send(client_socket,&Jogo->tabuleiroJogavel,sizeof(Jogo->tabuleiroJogavel),0);
         }
         
+       
 
 }
 
@@ -404,12 +407,12 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
         if (token != NULL) prioridade = atoi(token);
         printf("Prio: %d\n", prioridade);
         
-        sprintf(escreveLog, "O user %d com socket %d enviou a jogada (%d,%d) para a sala %d",id_cliente,client_socket,linha,coluna,sala+1);
+        sprintf(escreveLog, "O user %d com socket %d enviou a jogada (%d,%d) para a sala %d",id_cliente,client_socket,linha+1,coluna+1,sala+1);
         prodProduz(prodCons,escreveLog);
         
         if(salas[sala].modoJogo == 1){    
             enqueue(&salas[sala].fila, id_cliente,client_socket, linha, coluna, valor);
-            sprintf(escreveLog, "A jogada (%d,%d) do user %d com socket %d  da sala %d esta na fila FIFO",id_cliente,client_socket,linha,coluna,sala+1);
+            sprintf(escreveLog, "A jogada (%d,%d) do user %d com socket %d  da sala %d esta na fila FIFO",linha+1,coluna+1,id_cliente,client_socket,sala+1);
             prodProduz(prodCons,escreveLog);
             
             if (salas[sala].fila.iniciarJogo == true && salas[sala].fila.atendedorOn==false) //verificar isto
@@ -439,18 +442,18 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
                 if(jogadorTentaJogar(&salas[sala], id_cliente,client_socket,linha,coluna,valor,estatistica,prodCons)==1){//JOGADOR DESISTIU DA JOGADA
                     strcpy(mensagem,"desistencia");
                     send(client_socket,&mensagem,sizeof(mensagem),0); 
-                    pthread_mutex_lock(&salas[sala].estatistica.trincoEstatistica);
+                    pthread_mutex_lock(&salas[sala].trinco);
                     salas[sala].estatistica.desistencias++;
-                    pthread_mutex_unlock(&salas[sala].estatistica.trincoEstatistica);
+                    pthread_mutex_unlock(&salas[sala].trinco);
                     send(client_socket,&salas[sala].tabuleiroJogavel,sizeof(salas[sala].tabuleiroJogavel),0);
-                    sprintf(escreveLog, "O user %d com socket %d que enviou a jogada (%d,%d) para a sala %d desistiu porque a fila do barbeiro estava cheia",id_cliente,client_socket,linha,coluna,sala+1);
+                    sprintf(escreveLog, "O user %d com socket %d que enviou a jogada (%d,%d) para a sala %d desistiu porque a fila do barbeiro estava cheia",id_cliente,client_socket,linha+1,coluna+1,sala+1);
                     prodProduz(prodCons,escreveLog);
                 }
 
         }
         else if(salas[sala].modoJogo == 3){
             enqueuePriority(&salas[sala].filaPrioridade, id_cliente,client_socket, linha, coluna, valor,prioridade);
-            sprintf(escreveLog, "A jogada (%d,%d) do user %d com socket %d com prioridade %d  da sala %d esta na fila FIFO de prioridades",linha,coluna,id_cliente,client_socket,prioridade,sala+1);
+            sprintf(escreveLog, "A jogada (%d,%d) do user %d com socket %d com prioridade %d  da sala %d esta na fila FIFO de prioridades",linha+1,coluna+1,id_cliente,client_socket,prioridade,sala+1);
             prodProduz(prodCons,escreveLog);
             
             if (salas[sala].filaPrioridade.iniciarJogo == true && salas[sala].filaPrioridade.atendedorOn==false) //verificar isto
@@ -723,8 +726,11 @@ void salasInit(struct jogoSoduku *salas){
         salas[i].estatistica.pontuacaoMinima = 100000;
         salas[i].estatistica.maiorTempo = 0;
         salas[i].estatistica.menorTempo = 0;
+        salas[i].estatistica.tempoMedio=0;
         salas[i].estatistica.pontuacaoRecorde = 0;
         salas[i].estatistica.desistencias=0;
+        salas[i].estatistica.respostasErradas=0;
+
         pthread_mutex_init(&salas[i].estatistica.trincoEstatistica,NULL);
         salas[i].modoJogo = 0;
         createQueue(&salas[i].fila);
@@ -775,6 +781,14 @@ void geraEstatisticasSala(struct jogoSoduku *game,int maxJogadores){
     if (tempo < game->estatistica.menorTempo || game->estatistica.menorTempo == 0) {
         game->estatistica.menorTempo = tempo;
     }
+
+    if(game->estatistica.tempoMedio ==0){
+        game->estatistica.tempoMedio= tempo;
+
+    }else{
+        game->estatistica.tempoMedio= (game->estatistica.tempoMedio + tempo)/2;
+        game->estatistica.respostasErradas = game->estatistica.respostasErradas/2;
+    }
        
 }
 
@@ -793,6 +807,9 @@ void escreveEstatisticaSala(struct jogoSoduku * game,int clientSocket){
     strcat(mensagem,buffer);
     }
 
+    sprintf(buffer,"Media de Respostas Erradas: %d\n", game->estatistica.respostasErradas);
+    strcat(mensagem,buffer);
+    
     formatTime(game->estatistica.maiorTempo, formattedTime, sizeof(formattedTime));
     snprintf(buffer, sizeof(buffer), "Maior Tempo: %s\n", formattedTime);
     strcat(mensagem, buffer);
@@ -800,6 +817,11 @@ void escreveEstatisticaSala(struct jogoSoduku * game,int clientSocket){
     formatTime(game->estatistica.menorTempo, formattedTime, sizeof(formattedTime));
     snprintf(buffer, sizeof(buffer), "Menor Tempo: %s\n", formattedTime);
     strcat(mensagem, buffer);
+
+    formatTime(game->estatistica.tempoMedio, formattedTime, sizeof(formattedTime));
+    snprintf(buffer, sizeof(buffer), "Tempo Medio: %s\n", formattedTime);
+    strcat(mensagem, buffer);
+
     send(clientSocket,&mensagem,sizeof(mensagem),0);
 
 }

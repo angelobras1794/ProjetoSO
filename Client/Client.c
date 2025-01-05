@@ -21,6 +21,15 @@ struct confCliente
 
 };
 
+int verificaFimJogo(int * tabuleiro[9][9]){
+    for(int i =0;i<9;i++){
+        for(int j = 0 ;j<9;j++){
+            if(tabuleiro[i][j]==0){return 1;}
+        }
+    }
+    return 0;
+}
+
 
 void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala,int prioridade){
     char mensagem[100];
@@ -33,22 +42,29 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala,int prioridade)
         // Receber o tabuleiro do servidor
         recv(client_socket,tabuleiro,sizeof(tabuleiro),0);
         mostra_grid(&tabuleiro); // Exibir o tabuleiro atualizado
+        printf("ESTOU AQUIIIIII \n");
 
+        if(verificaFimJogo(tabuleiro)==0){
+          linhaRandom = rand() % 9;  // De 0 a 8
+          colunaRandom = rand() % 9;
+        }else{
         // Procurar uma posição vazia
         do {
             linhaRandom = rand() % 9;  // De 0 a 8
             colunaRandom = rand() % 9; // De 0 a 8
         } while (tabuleiro[linhaRandom][colunaRandom] != 0);
+        }
 
         // Escolher o valor (aqui, você pode implementar lógica adicional)
         int valorEscolhido = (rand() % 9) + 1; // Exemplo: sempre jogar 1
-
+        printf("ESTOU AQUIIIIII 1 \n");
         // Enviar a jogada formatada
         sprintf(mensagem, "jogo:%d,%d,%d,%d,%d:%d",sala,linhaRandom, colunaRandom, valorEscolhido,prioridade,id_cliente);
         send(client_socket, mensagem, sizeof(mensagem), 0);
         printf("Jogada enviada: linha=%d, coluna=%d, valor=%d\n", linhaRandom, colunaRandom, valorEscolhido);
         sprintf(mensagem,"JOGADOR com socket %d enviou a jogada (%d,%d) com valor %d na sala %d",client_socket,linhaRandom,colunaRandom,valorEscolhido,sala);
         escrever_logs(mensagem,id_cliente);
+        printf("ESTOU AQUIIIIII 2 \n");
 
         // usleep(500000); // fica 2 segundos parado
 
@@ -62,7 +78,7 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala,int prioridade)
         }else{
         printf("%s\n",mensagem);
         memset(mensagem, 0, sizeof(mensagem));
-
+         
         //verificar se o jogo acabou
         recv(client_socket,mensagem,sizeof(mensagem),0); //continuar ou acabar
         printf("%s\n",mensagem);
@@ -70,14 +86,14 @@ void jogoAutonomo(int client_socket,int id_cliente,int opcaoSala,int prioridade)
             printf("acabei o jogo lol\n");
             break;
         }
-
+        //  usleep(100000); // fica 2 segundos parado
         }
         memset(mensagem, 0, sizeof(mensagem));  
     }
     //o jogo acabou
     recv(client_socket,mensagem,sizeof(mensagem),0);
     printf("%s\n",mensagem);
-    sprintf(mensagem,"JOGADOR com socket %d acabou o jogo na sala %d",client_socket,sala-1);
+    sprintf(mensagem,"JOGADOR com socket %d acabou o jogo na sala %d",client_socket,sala);
     escrever_logs(mensagem,id_cliente);
 
 }
@@ -189,7 +205,6 @@ void mostraMenuJogar(int client_socket,int Cliente_id,int prioridade) {
                 sprintf(mensagem,"JOGADOR com socket %d enviou um pedido para ver quais salas estao disponiveis ",client_socket);
                 escrever_logs(mensagem,Cliente_id);
                 int verifica = recv(client_socket,&totalSalas,sizeof(totalSalas),0);        
-                printf("Total Salas: %d\n",totalSalas);
                 if(totalSalas != 0 ){
                     char salas[totalSalas][100]; //fazer a parte das salas para o cliente
                     recv(client_socket,&salas,sizeof(salas),0);
@@ -201,7 +216,6 @@ void mostraMenuJogar(int client_socket,int Cliente_id,int prioridade) {
                     opcaoSala =  get_valid_integer("Por favor, selecione uma sala:\n");
                     if (opcaoSala != 0)
                     {
-                    printf("Debug: opcaoSala = %d, Cliente_id = %d\n", opcaoSala,Cliente_id);
                     sprintf(mensagem,"entrar_em_sala:%d:%d",opcaoSala,Cliente_id);
                     
                     send(client_socket,&mensagem,sizeof(mensagem),0); // mesangem entrar sala
