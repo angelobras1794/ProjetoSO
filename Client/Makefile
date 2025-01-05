@@ -7,4 +7,3 @@ Client.o: Client.c
 clean:
 	rm -f *.o Client
 
-		

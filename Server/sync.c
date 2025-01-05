@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "sync.h"
 
-#define MAX_JOGADORES 6
+#define MAX_JOGADORES 3
 
 
 

@@ -17,7 +17,7 @@
 #define TAM 6
 #define N_CLIENTES 100
 #define MAX_SALAS  3
-#define MAX_JOGADORES 6
+#define MAX_JOGADORES 3
 
 void remove_newline(char *str) {
     size_t len = strlen(str);
@@ -161,7 +161,7 @@ void jogo3(int linha,int coluna,int valor,struct jogoSoduku * Jogo,int client_so
                 }
             }
     }else{
-            printf("o jogo continua\n");
+            
             strcpy(mensagem,"continue");
             send(client_socket,&mensagem,sizeof(mensagem),0);
             send(client_socket,&Jogo->tabuleiroJogavel,sizeof(Jogo->tabuleiroJogavel),0);
@@ -218,7 +218,7 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
 
     // Dividir a mensagem em ação e parâmetro
     int scanned = sscanf(mensagem, "%[^:]:%[^:]:%d", acao, parametro, &id_cliente);
-    printf("Scanned: %d, Ação: '%s', Parâmetro: '%s', ID Cliente: '%d'\n", scanned, acao, parametro, id_cliente);
+    
 
    
     
@@ -266,7 +266,6 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
                         estatistica->tabuleirosEmResolucao++;
                     pthread_mutex_unlock(&estatistica->trincoEstatistica);    
                         salas[i].tempoInicio = time(NULL); // Record the current time as the start time
-                        printf("Jogo Ativo\n");
                         sprintf(escreveLog, "Foi iniciado o jogo na sala %d\n",salas[i].idSala);
                         prodProduz(prodCons,escreveLog);
                     }
@@ -295,7 +294,6 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
      } 
    else if (strcmp(acao,"criar_sala") == 0) {
         pthread_mutex_lock(&mutexes->criar_sala);
-        printf("criar SALAS \n");
         sprintf(escreveLog,"O user %d com client socket %d esta a tentar criar a sala com o nome %s",id_cliente,client_socket,parametro);
         prodProduz(prodCons,escreveLog);
         int sala_ja_existe = 0;
@@ -318,10 +316,8 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
             char nomeSala[100];
             char *token = strtok(parametro,delimitador); // Primeira parte
             if (token != NULL) strcpy(nomeSala, token);
-            printf("Sala: %s\n", nomeSala);
             token = strtok(NULL, delimitador); // segunda parte
             if (token != NULL) modoJogo = atoi(token);
-            printf("Modo de Jogo: %d\n", modoJogo);
             
             strcpy(salas[(*totalSalas)].nome,nomeSala); 
             salas[*totalSalas].modoJogo = modoJogo;
@@ -330,16 +326,13 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
             (*totalSalas)++;
             
             strcpy(resposta_servidor,"Sala criada com sucesso");
-            printf("%s\n", resposta_servidor);
             send(client_socket,&resposta_servidor,sizeof(resposta_servidor),0);
 
-            printf("Sala '%s' criada\n", parametro);
             sprintf(escreveLog,"O user %d com sokcet %d criou a sala com o nome %s e com o modo de jogo %d",id_cliente,client_socket,parametro,modoJogo);
             prodProduz(prodCons,escreveLog);
             int indice = *totalSalas;
             
             if(load_sudoku_game("Jogos.json",salas,indice)){
-                printf("deu certo \n");
             }
             //INICIALIZACAO DA BARREIRA E DO TRINCO
             int index = indice -1;
@@ -378,7 +371,7 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
           
     }else if(strcmp(acao,"jogo") == 0){
          
-        printf("JOGO\n");
+        
         const char delimitador[] = ",";
 
         int sala, linha, coluna, valor,prioridade;
@@ -388,24 +381,23 @@ void processarMensagem(char mensagem[100], int client_socket,struct jogoSoduku *
         // Tokenizar e converter para inteiro
         char *token = strtok(parametro,delimitador); // Primeira parte
         if (token != NULL) sala = atoi(token);
-        printf("Sala: %d\n", sala);
+        
        
 
         token = strtok(NULL, delimitador); // segunda parte
         if (token != NULL) linha = atoi(token);
-        printf("Linha: %d\n", linha);
+        
 
         token = strtok(NULL, delimitador); // terceira parte
         if (token != NULL) coluna = atoi(token);
-        printf("Coluna: %d\n", coluna);
+        
 
         token = strtok(NULL, delimitador); // Última parte
         if (token != NULL) valor = atoi(token);
-        printf("Valor: %d\n", valor);
-
+        
         token = strtok(NULL, delimitador); // Última parte
         if (token != NULL) prioridade = atoi(token);
-        printf("Prio: %d\n", prioridade);
+       
         
         sprintf(escreveLog, "O user %d com socket %d enviou a jogada (%d,%d) para a sala %d",id_cliente,client_socket,linha+1,coluna+1,sala+1);
         prodProduz(prodCons,escreveLog);
@@ -552,7 +544,7 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     index--;
     FILE *file = fopen(filename, "r");
     if (!file) {
-        printf("Error opening file %s\n", filename);
+        // printf("Error opening file %s\n", filename);
         return 0;
     }
 
@@ -562,7 +554,7 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     fseek(file, 0, SEEK_SET);
     char *file_content = (char *)malloc(file_size + 1);
     if (file_content == NULL) {
-        printf("Memory allocation error\n");
+        // printf("Memory allocation error\n");
         fclose(file);
         return 0;
     }
@@ -574,14 +566,14 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     cJSON *root = cJSON_Parse(file_content);
     free(file_content);
     if (!root) {
-        printf("Error parsing JSON\n");
+        // printf("Error parsing JSON\n");
         return 0;
     }
 
     // Get the "games" array from the JSON
     cJSON *games = cJSON_GetObjectItem(root, "games");
     if (!cJSON_IsArray(games)) {
-        printf("Error: 'games' is not an array\n");
+        // printf("Error: 'games' is not an array\n");
         cJSON_Delete(root);
         return 0;
     }
@@ -591,7 +583,7 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     int jogoRandom = rand() % 2;
     cJSON *game_json = cJSON_GetArrayItem(games,jogoRandom);
     if (!game_json) {
-        printf("Error: No game data found\n");
+        // printf("Error: No game data found\n");
         cJSON_Delete(root);
         return 0;
     }
@@ -599,9 +591,9 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     cJSON *game_id = cJSON_GetObjectItem(game_json, "id");
     if (cJSON_IsNumber(game_id)) {
         game[index].idTabuleiro = game_id->valueint;  // Store the ID in the game structure
-        printf("Loaded game ID: %d\n", game[index].idTabuleiro);
+        // printf("Loaded game ID: %d\n", game[index].idTabuleiro);
     } else {
-        printf("Error: 'id' is not a valid number\n");
+        // printf("Error: 'id' is not a valid number\n");
         cJSON_Delete(root);
         return 0;
     }
@@ -610,48 +602,47 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     // Check if 'tabuleiroInic' is an array
     cJSON *sudoku = cJSON_GetObjectItem(game_json, "tabuleiroInic");
     if (!cJSON_IsArray(sudoku)) {
-        printf("Error: 'tabuleiroInic' is not an array\n");
+        // printf("Error: 'tabuleiroInic' is not an array\n");
         cJSON_Delete(root);
         return 0;
     }
 
     // Debug: Print the sudoku data type and structure
-    printf("'tabuleiroInic' is an array, checking rows...\n");
+    // printf("'tabuleiroInic' is an array, checking rows...\n");
 
     for (int i = 0; i < N; i++) {
         cJSON *row = cJSON_GetArrayItem(sudoku, i);
         if (!cJSON_IsArray(row)) {
-            printf("Error: Row %d is not an array\n", i);
+            // printf("Error: Row %d is not an array\n", i);
             cJSON_Delete(root);
             return 0;
         }
 
         // Print the row for debugging
-        printf("Row %d: ", i);
+        // printf("Row %d: ", i);
         for (int j = 0; j < N; j++) {
             int value = cJSON_GetArrayItem(row, j)->valueint;
             game[index].tabuleiro[i][j] = value;  // Store the value
-            printf("%d ", game[index].tabuleiro[i][j]);
+            // printf("%d ", game[index].tabuleiro[i][j]);
         }
-        printf("\n");
     }
 
     // Load the solution
      
     cJSON *solution = cJSON_GetObjectItem(game_json, "solucao");
     if (!cJSON_IsArray(solution)) {
-        printf("Error: 'solucao' is not an array\n");
+        // printf("Error: 'solucao' is not an array\n");
         cJSON_Delete(root);
         return 0;
     }
     for (int i = 0; i < N; i++) {
         cJSON *row = cJSON_GetArrayItem(solution, i);
         if (!cJSON_IsArray(row)) {
-            printf("Error: Solution row %d is not an array\n", i);
+            // printf("Error: Solution row %d is not an array\n", i);
             cJSON_Delete(root);
             return 0;
         }
-        printf("Error: 'tabuleiroInic' is not an array1\n");
+        // printf("Error: 'tabuleiroInic' is not an array1\n");
         for (int j = 0; j < N; j++) {
             
             game[index].solucTabuleiro[i][j] = cJSON_GetArrayItem(row, j)->valueint;
@@ -659,9 +650,9 @@ int load_sudoku_game(const char *filename, struct jogoSoduku *game,int index) {
     }
 
     memcpy(game[index].tabuleiroJogavel, game[index].tabuleiro, sizeof(game[index].tabuleiro));
-    mostra_grid(game[index].tabuleiroJogavel);
+    // mostra_grid(game[index].tabuleiroJogavel);
     cJSON_Delete(root);
-    printf("Error: 'tabuleiroInic' is not an array4\n");
+    // printf("Error: 'tabuleiroInic' is not an array4\n");
     return 1;  // Successfully loaded the game
 }
 
@@ -840,7 +831,7 @@ void  barbeiroAtende(void* arg) {
     while (sala->barberShop.barbeariaAberta) {
         sem_wait(&sala->barberShop.clientes);
         sem_post(&sala->barberShop.barbeiro);
-        printf("Barbeiro atendendo cliente.\n");
+        // printf("Barbeiro atendendo cliente.\n");
         sem_wait(&sala->barberShop.barbeiroCompleto);
         sem_post(&sala->barberShop.clienteCompleto);
     }
@@ -912,8 +903,7 @@ void * filaAtende(void *args){
 
     while(sala->fila.head!=NULL){
         pthread_mutex_lock(&sala->trinco);
-        printf("TOU DENTRO \n");    
-        printf("b1: %s\n", bool_to_string(sala->fila.iniciarJogo)); 
+        
         if (sala->fila.iniciarJogo == true) {   
         struct ClientRequest* request = dequeue(&sala->fila);
         if (request) {
@@ -940,11 +930,11 @@ void * filaAtendePrio(void *args){
     struct jogoSoduku *sala = argus->game;
     struct estatisticaServer* estatistica = argus->estatistica;
     struct prodCons *prodCons = argus->prodCons;
-    printf("TOU DENTRO 1\n"); 
+    
     while(sala->filaPrioridade.head!=NULL){
         pthread_mutex_lock(&sala->trinco);
-        printf("TOU DENTRO \n");    
-        printf("b1: %s\n", bool_to_string(sala->filaPrioridade.iniciarJogo)); 
+           
+        
         if (sala->filaPrioridade.iniciarJogo == true) {   
         struct ClientRequestPriority* request = dequeuePriority(&sala->filaPrioridade);
         if (request) {
